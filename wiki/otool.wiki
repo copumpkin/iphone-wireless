@@ -175,396 +175,68 @@ _MD5Final:
 ==AirPortSettings==
 
 {{{
-# otool -vVt /System/Library/PreferenceBundles/AirPortSettings.bundle/AirPortSettings | grep -e _ | grep -v _objc_msgSend
-(__TEXT,__text) section
-000018b4        e59f0044        ldr r0, [pc, #68]       ;[0x00001900] = _SCNetworkSetGetServiceOrder
-000018c4        e59f003c        ldr r0, [pc, #60]       ;[0x00001908] = _SCPreferencesSetCallback
-00001914        e59f32e8        ldr r3, [pc, #744]      ;[0x00001c04] = _SCNetworkSetCreate
+# otool -vVt /System/Library/PreferenceBundles/AirPortSettings.bundle/AirPortSettings| grep -e _ | grep -v _objc_msgSend | grep -e "Apple\|Air\|80211\|IEEE"
 000019e8        e59f2240        ldr r2, [pc, #576]      ;[0x00001c30] = 0x00017638 (@ "LE80211_M_POWER_CHANGED")
 00001a1c        e59f4218        ldr r4, [pc, #536]      ;[0x00001c3c] = 0x000175e4 (@ " %d, APPLE80211_M_LINK_CHANGED")
 00001a78        e59f21d0        ldr r2, [pc, #464]      ;[0x00001c50] = 0x000175b8 (@ "WiFi: Apple80211StartMonitoringEvent failed: %d, APPLE80211_M_LINK_CHANGED")
 00001abc        e59f2190        ldr r2, [pc, #400]      ;[0x00001c54] = 0x00017584 (@ "itoringEvent failed: %d, APPLE80211_M_ASSOC_DONE")
 00001b04        e59f2150        ldr r2, [pc, #336]      ;[0x00001c5c] = 0x0001754c (@ "led: %d, APPLE80211_M_SCAN_DONE")
-00001bd8        eb005bd8        bl _NSStringFromClass
-00002038        e59f322c        ldr r3, [pc, #556]      ;[0x0000226c] = 0x00017058 (@ "_joinDict")
-00002108        e59f2188        ldr r2, [pc, #392]      ;[0x00002298] = 0x00016fb4 (@ "_notFoundSet")
-000021f0        e59f20bc        ldr r2, [pc, #188]      ;[0x000022b4] = 0x00016f0c (@ "_currentNetwork")
-0000230c        e59f108c        ldr r1, [pc, #140]      ;[0x000023a0] = _CFRelease
 0000231c        e59f1080        ldr r1, [pc, #128]      ;[0x000023a4] = _Apple80211GetIfListCopy
 0000232c        e59f1074        ldr r1, [pc, #116]      ;[0x000023a8] = _Apple80211CopyValue
-00002338        e59f106c        ldr r1, [pc, #108]      ;[0x000023ac] = _SCPreferencesLock
-00002364        e59f1048        ldr r1, [pc, #72]       ;[0x000023b4] = _CFArraySetValueAtIndex
-00002374        e59f103c        ldr r1, [pc, #60]       ;[0x000023b8] = _CFRelease
-000023bc        e59f1014        ldr r1, [pc, #20]       ;[0x000023d8] = _SCPreferencesSynchronize
-000023dc        e59f1074        ldr r1, [pc, #116]      ;[0x00002458] = _SCNetworkServiceEstablishDefaultConfiguration
-00002400        e59f1054        ldr r1, [pc, #84]       ;[0x0000245c] = _SCNetworkServiceRemove
-00002410        e59f1048        ldr r1, [pc, #72]       ;[0x00002460] = _CFArrayGetCount
-00002434        e59f1028        ldr r1, [pc, #40]       ;[0x00002464] = _SCError
-00002438        e59f2028        ldr r2, [pc, #40]       ;[0x00002468] = _CFEqual
 0000246c        e59f1034        ldr r1, [pc, #52]       ;[0x000024a8] = _Apple80211Set
 00002478        e59f102c        ldr r1, [pc, #44]       ;[0x000024ac] = _Apple80211SetPower
 000024b4        e59f1018        ldr r1, [pc, #24]       ;[0x000024d4] = _Apple80211GetPower
-000024d8        e59f1014        ldr r1, [pc, #20]       ;[0x000024f4] = _CFRetain
-000024f8        e59f1018        ldr r1, [pc, #24]       ;[0x00002518] = _SCPreferencesApplyChanges
-0000251c        e59f1014        ldr r1, [pc, #20]       ;[0x00002538] = _CFArrayCreateMutableCopy
-0000253c        e59f1018        ldr r1, [pc, #24]       ;[0x0000255c] = _SCPreferencesScheduleWithRunLoop
-00002560        e59f1014        ldr r1, [pc, #20]       ;[0x0000257c] = _SCDynamicStoreCreate
-00002580        e59f1018        ldr r1, [pc, #24]       ;[0x000025a0] = _SCNetworkInterfaceGetInterface
-000025a4        e59f1014        ldr r1, [pc, #20]       ;[0x000025c0] = _SCNetworkProtocolGetConfiguration
-000025c4        e59f1018        ldr r1, [pc, #24]       ;[0x000025e4] = _SCNetworkServiceGetInterface
-000025e8        e59f1014        ldr r1, [pc, #20]       ;[0x00002604] = _SCNetworkSetRemove
-00002608        e59f1018        ldr r1, [pc, #24]       ;[0x00002628] = _SCNetworkProtocolSetConfiguration
-0000262c        e59f1014        ldr r1, [pc, #20]       ;[0x00002648] = _SCNetworkSetGetServiceOrder
 0000264c        e59f1018        ldr r1, [pc, #24]       ;[0x0000266c] = _Apple80211ScanAsync
 00002670        e59f1014        ldr r1, [pc, #20]       ;[0x0000268c] = _Apple80211Associate
-00002690        e59f1018        ldr r1, [pc, #24]       ;[0x000026b0] = _SCNetworkSetSetName
-000026b4        e59f1014        ldr r1, [pc, #20]       ;[0x000026d0] = _SCPreferencesCreate
-000026e4        e59f1078        ldr r1, [pc, #120]      ;[0x00002764] = _SCDynamicStoreCopyValue
-000026ec        e59f2074        ldr r2, [pc, #116]      ;[0x00002768] = _SCDynamicStoreCopyValue
-00002730        e59f1034        ldr r1, [pc, #52]       ;[0x0000276c] = _SCNetworkInterfaceGetInterfaceType
-00002770        e59f1034        ldr r1, [pc, #52]       ;[0x000027ac] = _SCNetworkSetCopyServices
-0000277c        e59f102c        ldr r1, [pc, #44]       ;[0x000027b0] = _SCNetworkInterfaceRefreshConfiguration
-000027b8        e59f1018        ldr r1, [pc, #24]       ;[0x000027d8] = _SCNetworkSetAddService
 000027dc        e59f1014        ldr r1, [pc, #20]       ;[0x000027f8] = _CTPowerGetAirplaneMode
-000027fc        e59f1018        ldr r1, [pc, #24]       ;[0x0000281c] = _ceilf
-00002820        e59f1014        ldr r1, [pc, #20]       ;[0x0000283c] = _GSColorForSystemColor
-00002840        e59f1034        ldr r1, [pc, #52]       ;[0x0000287c] = 0x00018ad0 (@ "OR_3_6")
-0000284c        e59f102c        ldr r1, [pc, #44]       ;[0x00002880] = _NSStringFromClass
-00002888        e59f1014        ldr r1, [pc, #20]       ;[0x000028a4] = _SpecifiersFromPlist
-000028dc        e59f194c        ldr r1, [pc, #2380]     ;[0x00003230] = 0x00018b10 (@ "WIFI_ERROR_OK")
-00002908        e59f1928        ldr r1, [pc, #2344]     ;[0x00003238] = 0x00018ae0 (@ "OR_25")
-0000292c        e59f1910        ldr r1, [pc, #2320]     ;[0x00003244] = 0x00018ac0 (@ "_JOIN")
-00002944        e59f18fc        ldr r1, [pc, #2300]     ;[0x00003248] = 0x00018ab4 (@ "_CANCEL")
-00002994        e59f08bc        ldr r0, [pc, #2236]     ;[0x00003258] = _CFEqual
-000029e0        e59f0880        ldr r0, [pc, #2176]     ;[0x00003268] = _SCPreferencesSetValue
-00002a50        eb00583e        bl _SpecifiersFromPlist
-00002ad0        e59f27ac        ldr r2, [pc, #1964]     ;[0x00003284] = _CFArrayGetFirstIndexOfValue
-00002fcc        e59f12f0        ldr r1, [pc, #752]      ;[0x000032c4] = 0x0001828c (@ "_success")
-0000307c        e59f326c        ldr r3, [pc, #620]      ;[0x000032f0] = 0x00016ff0 (@ "_enabled")
-000030e4        e59f1218        ldr r1, [pc, #536]      ;[0x00003304] = 0x000182c4 (@ "_failed")
-00003164        e59f61a4        ldr r6, [pc, #420]      ;[0x00003310] = 0x0001824c (@ "_securityMode")
-0000317c        e59f1190        ldr r1, [pc, #400]      ;[0x00003314] = 0x000182a8 (@ "_prompt")
-00003568        e59f0050        ldr r0, [pc, #80]       ;[0x000035c0] = 0x000182d8 (@ "_ssid")
-00003900        e59f167c        ldr r1, [pc, #1660]     ;[0x00003f84] = 0x00017a70 (@ "AP_MODE")
-00003ce8        e59f631c        ldr r6, [pc, #796]      ;[0x0000400c] = 0x000176e0 (@ "_NUM_SCANS")
 00003d50        e59f12bc        ldr r1, [pc, #700]      ;[0x00004014] = 0x0001752c (@ "ple80211StartMonitoringEvent failed: %d, APPLE80211_M_SCAN_DONE")
 00003d68        e59f12a8        ldr r1, [pc, #680]      ;[0x00004018] = 0x00017608 (@ ": Apple80211StartMonitoringEvent failed: %d, APPLE80211_M_POWER_CHANGED")
 00003e0c        e59f121c        ldr r1, [pc, #540]      ;[0x00004030] = 0x00017578 (@ "0211StartMonitoringEvent failed: %d, APPLE80211_M_ASSOC_DONE")
-00003e18        e59f1214        ldr r1, [pc, #532]      ;[0x00004034] = 0x00017564 (@ "AN_DONE")
 00003e44        e59f51f0        ldr r5, [pc, #496]      ;[0x0000403c] = 0x000175e8 (@ " APPLE80211_M_LINK_CHANGED")
-00003e8c        e59f11ac        ldr r1, [pc, #428]      ;[0x00004040] = 0x000175ac (@ "SOC_DONE")
 00003eb8        e59f1188        ldr r1, [pc, #392]      ;[0x00004048] = 0x00017578 (@ "0211StartMonitoringEvent failed: %d, APPLE80211_M_ASSOC_DONE")
 00003ee8        e59f115c        ldr r1, [pc, #348]      ;[0x0000404c] = 0x00017538 (@ "tMonitoringEvent failed: %d, APPLE80211_M_SCAN_DONE")
 00004278        e59f0798        ldr r0, [pc, #1944]     ;[0x00004a18] = 0x00017604 (@ "WiFi: Apple80211StartMonitoringEvent failed: %d, APPLE80211_M_POWER_CHANGED")
-000042c4        e59f175c        ldr r1, [pc, #1884]     ;[0x00004a28] = 0x00017024 (@ "_writingConfiguration")
 000042d0        e59f0754        ldr r0, [pc, #1876]     ;[0x00004a2c] = 0x00017574 (@ "ple80211StartMonitoringEvent failed: %d, APPLE80211_M_ASSOC_DONE")
-00004494        e59f15d8        ldr r1, [pc, #1496]     ;[0x00004a74] = 0x00016f30 (@ "_prefs")
-00004520        e59f1568        ldr r1, [pc, #1384]     ;[0x00004a90] = 0x00016d5c (@ "_interfaceName")
-00004530        e59f155c        ldr r1, [pc, #1372]     ;[0x00004a94] = 0x00016e54 (@ "_loadFavorites")
-00004684        e59f1440        ldr r1, [pc, #1088]     ;[0x00004acc] = 0x00016c6c (@ "_createNewSetForNetwork:")
-000046f4        e59f53e8        ldr r5, [pc, #1000]     ;[0x00004ae4] = 0x00016c88 (@ "_setupNewSetForNetwork:")
-00004864        e59f12b4        ldr r1, [pc, #692]      ;[0x00004b20] = 0x00016b70 (@ "^{__SCPreferences=}")
-00004928        e59f120c        ldr r1, [pc, #524]      ;[0x00004b3c] = 0x00016ab4 (@ "_PROMPT")
-00004958        e59f11e0        ldr r1, [pc, #480]      ;[0x00004b40] = 0x00016a80 (@ "RITY_CANCEL")
-00004bcc        e59f0180        ldr r0, [pc, #384]      ;[0x00004d54] = 0x00016cb0 (@ "_deleteSetForNetwork:")
-00004c88        e59f00e8        ldr r0, [pc, #232]      ;[0x00004d78] = 0x00016bfc (@ "_storeCustomSettingsForNetwork:")
-00004e04        eb004f59        bl _GSColorForSystemColor
 0000520c        eb004e67        bl _CTPowerGetAirplaneMode
-00005348        eb004e14        bl _NSStringFromSelector
-000053b4        e59f10bc        ldr r1, [pc, #188]      ;[0x00005478] = 0x00015edc (@ "_securityDict")
-0000552c        e59f1210        ldr r1, [pc, #528]      ;[0x00005744] = 0x00015ec0 (@ "_networks")
-00005550        e59f11f4        ldr r1, [pc, #500]      ;[0x0000574c] = 0x00015f50 (@ "_joining")
-00005fb0        e59f41dc        ldr r4, [pc, #476]      ;[0x00006194] = 0x000152c8 (@ "_currentConfigSpecifiers")
-00006050        e59f3164        ldr r3, [pc, #356]      ;[0x000061bc] = 0x0001526c (@ "_proxySegmentSpecifiers")
-0000629c        e59f1064        ldr r1, [pc, #100]      ;[0x00006308] = 0x00015254 (@ "_renewGroupSpecifiers")
-00006cac        eb0047b7        bl _NSLog
-00007ea0        eb00432a        bl _SpecifiersFromPlist
-00008a0c        eb00405b        bl _ceilf
-00009460        eb003e56        bl _SCDynamicStoreCreate
-0000947c        eb003e03        bl _SCPreferencesCreate
-00009494        eb003dfd        bl _SCPreferencesCreate
-000094b0        eb003e02        bl _SCPreferencesSetCallback
-000094c8        eb003ec4        bl _CFRunLoopGetCurrent
-000094e0        eb003e3a        bl _SCPreferencesScheduleWithRunLoop
-000094f4        eb003e75        bl _SCError
-000094f8        eb003e48        bl _SCErrorString
-00009504        eb003da1        bl _NSLog
 0000950c        eb003dd7        bl _Apple80211Open
-00009524        eb003d99        bl _NSLog
 00009540        eb003ea2        bl _Apple80211GetIfListCopy
 00009590        eb003e46        bl _Apple80211BindToInterface
 000095ac        eb003e77        bl _Apple80211EventMonitoringInit
 000095b8        eb003e2c        bl _Apple80211StartMonitoringEvent
-000095cc        eb003d6f        bl _NSLog
 000095d8        eb003e24        bl _Apple80211StartMonitoringEvent
-000095ec        eb003d67        bl _NSLog
 000095f8        eb003e1c        bl _Apple80211StartMonitoringEvent
-0000960c        eb003d5f        bl _NSLog
 00009618        eb003e14        bl _Apple80211StartMonitoringEvent
-0000962c        eb003d57        bl _NSLog
-0000963c        eb003d53        bl _NSLog
 00009644        eb003de9        bl _Apple80211Close
-0000965c        eb003d4b        bl _NSLog
 00009664        eb003de1        bl _Apple80211Close
-0000967c        eb003e3b        bl _CFRelease
 00009900        eb003cf6        bl _Apple80211ScanAsync
-00009930        eb003c96        bl _NSLog
-000099d8        eb003c94        bl _SCDynamicStoreSetNotificationKeys
-000099e8        eb003d7c        bl _CFRunLoopGetCurrent
-00009a00        eb003c9e        bl _SCPreferencesUnscheduleFromRunLoop
 00009a10        eb003ca2        bl _Apple80211EventMonitoringHalt
 00009a18        eb003cf4        bl _Apple80211Close
-00009af0        eb003d1e        bl _CFRelease
-00009b00        eb003d1a        bl _CFRelease
-00009b10        eb003d16        bl _CFRelease
 00009b74        eb003c35        bl _Apple80211GetInfoCopy
-00009ba0        eb003cf2        bl _CFRelease
 00009c64        eb003bf9        bl _Apple80211GetInfoCopy
-00009d14        eb003c95        bl _CFRelease
-00009d90        eb003c76        bl _CFRelease
 00009e00        eb003c12        bl _Apple80211GetPower
-00009e18        eb003b5c        bl _NSLog
 00009e68        eb003c54        bl _Apple80211CopyValue
-00009eb0        eb003c2e        bl _CFRelease
 00009ef0        eb003be2        bl _Apple80211SetPower
-00009f08        eb003b20        bl _NSLog
 0000a5ac        eb0039c7        bl _Apple80211Associate
-0000a5f4        eb003965        bl _NSLog
-0000a940        eb003892        bl _NSLog
 0000ab48        eb0038d4        bl _Apple80211Set
-0000ab5c        eb00380b        bl _NSLog
-0000ab90        eb003812        bl _SCNetworkInterfaceRefreshConfiguration
-0000aba4        eb0037f9        bl _NSLog
-0000b41c        eb0036e3        bl _SCPreferencesLock
-0000b42c        eb0036bf        bl _SCPreferencesSynchronize
-0000b438        eb0036dc        bl _SCPreferencesLock
-0000b450        eb00368e        bl _SCPreferencesSetValue
-0000b45c        eb00369b        bl _SCError
-0000b460        eb00366e        bl _SCErrorString
-0000b47c        eb0035c3        bl _NSLog
-0000b488        eb003630        bl _SCPreferencesCommitChanges
-0000b498        eb00365c        bl _SCPreferencesApplyChanges
-0000b4a8        eb00364c        bl _SCPreferencesUnlock
-0000b4b4        eb003685        bl _SCError
-0000b4b8        eb003658        bl _SCErrorString
-0000b4cc        eb0035af        bl _NSLog
-0000b4d4        eb003695        bl _SCPreferencesSynchronize
-0000b4f0        eb003676        bl _SCError
-0000b4f4        eb003649        bl _SCErrorString
-0000b500        eb0035a2        bl _NSLog
-0000b508        eb003634        bl _SCPreferencesUnlock
-0000b510        eb00366e        bl _SCError
-0000b514        eb003641        bl _SCErrorString
-0000b528        eb003598        bl _NSLog
-0000b568        eb003690        bl _SCPreferencesLock
-0000b578        eb00366c        bl _SCPreferencesSynchronize
-0000b584        eb003689        bl _SCPreferencesLock
-0000b598        eb003630        bl _SCPreferencesGetValue
-0000b5b0        eb00360a        bl _SCPreferencesUnlock
-0000b5b8        eb003644        bl _SCError
-0000b5bc        eb003617        bl _SCErrorString
-0000b5d4        eb00356d        bl _NSLog
 0000c3b0        eb00324a        bl _Apple80211ScanAsync
-0000c3e4        eb0031e9        bl _NSLog
-0000c5e8        eb003168        bl _NSLog
-0000d248        eb002e84        bl _SCDynamicStoreCopyValue
 0000d49c        eb002deb        bl _Apple80211GetInfoCopy
-0000d580        eb002e7a        bl _CFRelease
 0000d60c        eb002d8f        bl _Apple80211GetInfoCopy
-0000d7bc        eb002deb        bl _CFRelease
-0000d9dc        eb002c9f        bl _SCDynamicStoreCopyValue
-0000db3c        eb002d1b        bl _SCPreferencesLock
-0000db4c        eb002cf7        bl _SCPreferencesSynchronize
-0000db58        eb002d14        bl _SCPreferencesLock
-0000db68        eb002cf4        bl _SCNetworkSetCopyCurrent
-0000db78        eb002c24        bl _SCNetworkSetCopyServices
-0000db88        eb002cd8        bl _CFArrayGetCount
-0000dbb0        eb002c7e        bl _CFArrayGetValueAtIndex
-0000dbb8        eb002c68        bl _SCNetworkServiceGetInterface
-0000dbc0        eb002c16        bl _SCNetworkInterfaceGetInterfaceType
-0000dbe0        eb002c96        bl _SCNetworkInterfaceGetBSDName
-0000dbfc        eb002c8b        bl _CFRetain
-0000dc24        eb002cd1        bl _CFRelease
-0000dc2c        eb002ccf        bl _CFRelease
-0000dc40        eb002c2a        bl _SCNetworkServiceGetServiceID
-0000dec8        eb002b58        bl _SCDynamicStoreSetNotificationKeys
-0000ded4        eb002bfd        bl _SCError
-0000ded8        eb002bd0        bl _SCErrorString
-0000deec        eb002b27        bl _NSLog
-0000df0c        eb002b7b        bl _SCDynamicStoreCreateRunLoopSource
-0000df18        eb002c30        bl _CFRunLoopGetCurrent
-0000df2c        eb002c0b        bl _CFRunLoopAddSource
-0000df34        eb002c0d        bl _CFRelease
-0000df3c        eb002c0b        bl _CFRelease
-0000df4c        eb002b0f        bl _NSLog
-0000df54        eb002ba1        bl _SCPreferencesUnlock
-0000e060        eb002bd2        bl _SCPreferencesLock
-0000e070        eb002bae        bl _SCPreferencesSynchronize
-0000e07c        eb002bcb        bl _SCPreferencesLock
-0000e08c        eb002ad7        bl _SCNetworkSetCopyAll
-0000e09c        eb002b93        bl _CFArrayGetCount
-0000e0bc        eb002b3b        bl _CFArrayGetValueAtIndex
-0000e0c8        eb002ba0        bl _SCNetworkSetGetSetID
-0000e0e8        eb002b14        bl _SCNetworkSetRemove
-0000e0f0        eb002b16        bl _SCPreferencesCommitChanges
-0000e0f8        eb002b44        bl _SCPreferencesApplyChanges
-0000e110        eb002b32        bl _SCPreferencesUnlock
-0000e118        eb002b84        bl _SCPreferencesSynchronize
-0000e218        eb002a74        bl _SCNetworkSetCopyAll
-0000e224        eb002b31        bl _CFArrayGetCount
-0000e244        eb002ad9        bl _CFArrayGetValueAtIndex
-0000e250        eb002b3e        bl _SCNetworkSetGetSetID
-0000e2c4        eb002b39        bl _SCPreferencesLock
-0000e2d4        eb002b15        bl _SCPreferencesSynchronize
-0000e2e0        eb002b32        bl _SCPreferencesLock
-0000e308        eb002b10        bl _SCNetworkSetGetSetID
-0000e344        eb002a81        bl _SCPreferencesCommitChanges
-0000e34c        eb002aaf        bl _SCPreferencesApplyChanges
-0000e354        eb002aa1        bl _SCPreferencesUnlock
-0000e35c        eb002af3        bl _SCPreferencesSynchronize
-0000e3ec        eb002a4f        bl _SCNetworkSetCreate
-0000e408        eb002ab0        bl _SCError
-0000e40c        eb002a83        bl _SCErrorString
-0000e424        eb002a59        bl _SCPrint
-0000e45c        eb002a13        bl _SCNetworkSetSetName
-0000e464        eb002a29        bl _SCNetworkSetGetServiceOrder
-0000e470        eb002a9a        bl _SCNetworkSetSetServiceOrder
-0000e488        eb002a90        bl _SCError
-0000e48c        eb002a63        bl _SCErrorString
-0000e4ac        eb0029d7        bl _SCNetworkSetCopyServices
-0000e4bc        eb002a8b        bl _CFArrayGetCount
-0000e4e4        eb002a31        bl _CFArrayGetValueAtIndex
-0000e4ec        eb002a1b        bl _SCNetworkServiceGetInterface
-0000e4f8        eb0029c8        bl _SCNetworkInterfaceGetInterfaceType
-0000e500        eb002a6e        bl _CFEqual
-0000e510        eb002a22        bl _SCNetworkInterfaceGetInterface
-0000e544        eb0029ad        bl _SCNetworkServiceCreate
-0000e550        eb002a6e        bl _SCNetworkServiceEstablishDefaultConfiguration
-0000e56c        eb002993        bl _SCNetworkSetAddService
-0000e59c        eb0029db        bl _SCNetworkSetGetServiceOrder
-0000e5b0        eb002a12        bl _CFArrayCreateMutableCopy
-0000e5c4        eb002981        bl _CFArrayCreateMutable
-0000e5cc        eb002a47        bl _CFArrayGetCount
-0000e5dc        eb0029c3        bl _SCNetworkServiceGetServiceID
-0000e5f0        eb0029de        bl _CFArrayGetFirstIndexOfValue
-0000e604        eb0029b9        bl _SCNetworkServiceGetServiceID
-0000e614        eb002a41        bl _CFArraySetValueAtIndex
-0000e620        eb002a2e        bl _SCNetworkSetSetServiceOrder
-0000e628        eb002a50        bl _CFRelease
-0000e630        eb002a4e        bl _CFRelease
-0000e644        eb002a21        bl _SCError
-0000e648        eb0029f4        bl _SCErrorString
-0000e660        eb0029ca        bl _SCPrint
-0000e674        eb002a15        bl _SCError
-0000e678        eb0029e8        bl _SCErrorString
-0000e690        eb0029be        bl _SCPrint
-0000e6a4        eb002a09        bl _SCError
-0000e6a8        eb0029dc        bl _SCErrorString
-0000e6c0        eb0029b2        bl _SCPrint
-0000e6d0        eb002a0a        bl _SCNetworkServiceRemove
-0000e6d8        eb002a24        bl _CFRelease
-0000e6e0        eb002996        bl _SCNetworkSetRemove
-0000e6e8        eb002a20        bl _CFRelease
-0000e6f0        eb002a1e        bl _CFRelease
-0000e76c        eb002a0f        bl _SCPreferencesLock
-0000e780        eb0029ea        bl _SCPreferencesSynchronize
-0000e790        eb002a06        bl _SCPreferencesLock
-0000e7b0        eb002916        bl _SCNetworkSetCopyServices
-0000e800        eb002956        bl _SCNetworkServiceGetInterface
-0000e808        eb002904        bl _SCNetworkInterfaceGetInterfaceType
-0000e828        eb002984        bl _SCNetworkInterfaceGetBSDName
-0000e85c        eb00295f        bl _SCPreferencesUnlock
-0000e898        eb0029b8        bl _SCNetworkServiceCopyProtocol
-0000e8a4        eb002935        bl _SCNetworkProtocolGetConfiguration
-0000e8d8        eb0029a8        bl _SCNetworkServiceCopyProtocol
-0000e8e4        eb002925        bl _SCNetworkProtocolGetConfiguration
-0000e918        eb002998        bl _SCNetworkServiceCopyProtocol
-0000e924        eb002915        bl _SCNetworkProtocolGetConfiguration
-0000e948        eb002960        bl _SCError
-0000e94c        eb002933        bl _SCErrorString
-0000e960        eb00288a        bl _NSLog
-0000e9c4        eb002889        bl _SCNetworkSetCopyAll
-0000e9d0        eb002946        bl _CFArrayGetCount
-0000e9f8        eb0028ec        bl _CFArrayGetValueAtIndex
-0000ea00        eb00288e        bl _SCNetworkSetGetName
-0000ea1c        eb002903        bl _CFRetain
-0000ea40        eb00293e        bl _SCNetworkSetCopyCurrent
-0000ea54        eb002945        bl _CFRelease
-0000ea84        eb002949        bl _SCPreferencesLock
-0000ea94        eb002925        bl _SCPreferencesSynchronize
-0000eaa0        eb002942        bl _SCPreferencesLock
-0000eac8        eb0028d8        bl _CFRetain
-0000eaec        eb00292b        bl _SCNetworkSetSetCurrent
-0000eafc        eb002893        bl _SCPreferencesCommitChanges
-0000eb0c        eb0028bf        bl _SCPreferencesApplyChanges
-0000eb1c        eb0028af        bl _SCPreferencesUnlock
-0000eb28        eb0028e8        bl _SCError
-0000eb2c        eb0028bb        bl _SCErrorString
-0000eb40        eb002812        bl _NSLog
-0000eb48        eb0028f8        bl _SCPreferencesSynchronize
-0000eb50        eb0028de        bl _SCError
-0000eb54        eb0028b1        bl _SCErrorString
-0000eb68        eb002808        bl _NSLog
-0000eb70        eb00289a        bl _SCPreferencesUnlock
-0000eb8c        eb0028cf        bl _SCError
-0000eb90        eb0028a2        bl _SCErrorString
-0000eb9c        eb0027fb        bl _NSLog
-0000eba4        eb0028f1        bl _CFRelease
-0000ebac        eb00288b        bl _SCPreferencesUnlock
-0000ec04        eb0028e9        bl _SCPreferencesLock
-0000ec18        eb0028c4        bl _SCPreferencesSynchronize
-0000ec28        eb0028e0        bl _SCPreferencesLock
-0000ec48        eb0027f0        bl _SCNetworkSetCopyServices
-0000ec98        eb002830        bl _SCNetworkServiceGetInterface
-0000eca0        eb0027de        bl _SCNetworkInterfaceGetInterfaceType
-0000ecc0        eb00285e        bl _SCNetworkInterfaceGetBSDName
-0000ee1c        eb002857        bl _SCNetworkServiceCopyProtocol
-0000f134        eb0026f9        bl _SCNetworkProtocolSetConfiguration
-0000f154        eb00275d        bl _SCError
-0000f158        eb002730        bl _SCErrorString
-0000f17c        eb002753        bl _SCError
-0000f180        eb002726        bl _SCErrorString
-0000f194        eb00267d        bl _NSLog
-0000f1b0        eb0026e6        bl _SCPreferencesCommitChanges
-0000f1c4        eb002711        bl _SCPreferencesApplyChanges
-0000f1d8        eb002700        bl _SCPreferencesUnlock
-0000f1e4        eb002739        bl _SCError
-0000f1e8        eb00270c        bl _SCErrorString
-0000f1fc        eb002663        bl _NSLog
-0000f208        eb002748        bl _SCPreferencesSynchronize
-0000f210        eb00272e        bl _SCError
-0000f214        eb002701        bl _SCErrorString
-0000f228        eb002658        bl _NSLog
-0000f234        eb0026e9        bl _SCPreferencesUnlock
-0000f23c        eb002723        bl _SCError
-0000f240        eb0026f6        bl _SCErrorString
-0000f254        eb00264d        bl _NSLog
-0000f260        eb0026de        bl _SCPreferencesUnlock
-0000f268        eb002718        bl _SCError
-0000f26c        eb0026eb        bl _SCErrorString
-0000f280        eb002642        bl _NSLog
-00012468        eb0019b8        bl _SpecifiersFromPlist
-00013c44        41600000        msrmi cpsr_, r0
-00013ec4        eb001449        bl _CFDictionaryGetValue
-00013f18        eb001434        bl _CFDictionaryGetValue
-00013f28        eb001430        bl _CFDictionaryGetValue
-00013f38        eb00142c        bl _CFDictionaryGetValue
-00013fd0        eb0012ea        bl _ceilf
 }}}
 
 ==MobileMail==
 
+{{{
 otool -vVt /Applications/MobileMail.app/MobileMail | grep -e _ | grep -v _objc_msgSend | grep -e "Apple\|Air\|80211\|IEEE"
 0001db0c        eb00bc33        bl _CTPowerGetAirplaneMode
 00039654        eb004e39        bl _Apple80211Open
 00039800        eb004def        bl _Apple80211Close
 0003a4ac        eb004ac1        bl _Apple80211GetPower
+}}}
 
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
-
 
 
