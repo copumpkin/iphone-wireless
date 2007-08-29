@@ -1,7 +1,7 @@
 #summary A list of all the known Apple80211 functions
 
 ==Complete==
-  * Apple80211Open - _Binds an open library handle to a named wireless interface._
+  * Apple80211Open - _Initializes the Apple80211 library._
   * Apple80211Close - _Closes an open handle._
   * Apple80211BindToInterface- _Binds an open library handle to a named wireless interface._
   * Apple80211GetInfoCopy - _Retrieves information from the currently bound interface._
@@ -28,4 +28,3 @@
   * Apple80211ParseRSNIE
   * Apple80211ParseAppleIE
   * Apple80211Parse80211dIE
-
