@@ -13,8 +13,49 @@ This page contains interesting information gleaned with otool from the various s
 
 = Details =
 
+== Aeropuerto ==
+{{{
+# otool -vVt Aeropuerto | grep -e ^_
+_stop:
+_ajGetScanChannelArray:
+_start:
+_Apple80211Open:
+_Apple80211Close:
+_Apple80211GetIfListCopy:
+_Apple80211BindToInterface:
+_Apple80211GetInterfaceNameCopy:
+_Apple80211GetInfoCopy:
+_Apple80211GetPower:
+_Apple80211SetPower:
+_Apple80211Scan:
+_Apple80211ScanAsync:
+_Apple80211ScanDynamic:
+_Apple80211Associate:
+_Apple80211Get:
+_Apple80211CopyValue:
+_Apple80211Set:
+_Apple80211EventMonitoringInit:
+_Apple80211StartMonitoringEvent:
+_Apple80211StopMonitoringEvent:
+_Apple80211EventMonitoringHalt:
+_Apple80211ParseWPAIE:
+_Apple80211ParseRSNIE:
+_Apple80211ParseAppleIE:
+_Apple80211Parse80211dIE:
+_Apple80211ParseSES_IE:
+_IEEE80211iPasswordHash:
+_MD5:
+_MD5Init:
+_MD5Update:
+_MD5Final:
+}}}
+
+
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
+
+
+
 
