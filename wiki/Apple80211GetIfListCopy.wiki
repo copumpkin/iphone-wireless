@@ -9,6 +9,8 @@ Returns an array of available 802.11 devices.
 
 *Sample output*
 
+{{{
 <CFArray 0x104a40 [0x383e8174]>{type = mutable-small, count = 1, values = (
         0 : <CFString 0x104a60 [0x383e8174]>{contents = "en0"}
 )}
+}}}
