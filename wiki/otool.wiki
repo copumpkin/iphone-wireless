@@ -114,6 +114,7 @@ otool -vVt /Applications/MobileMail.app/MobileMail | grep -e _ | grep -v _objc_m
 ==Preferenes==
 
 # otool -vT /System/Library/Frameworks/Preferences.framework/Preferences| grep -e _ | grep -v _objc_msgSend | grep -e "Apple\|Air\|80211\|IEEE"
+{{{
 single module    _Apple80211Associate
 single module    _Apple80211BindToInterface
 single module    _Apple80211Close
@@ -141,10 +142,10 @@ single module    _Apple80211StopMonitoringEvent
 single module    _IEEE80211iPasswordHash
 single module    _PSGetAirplaneMode
 single module    _PSSetAirplaneMode
+}}}
 
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
-
