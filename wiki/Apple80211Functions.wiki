@@ -1,0 +1,33 @@
+#summary A list of all the known Apple80211 functions
+
+==Complete==
+  * Apple80211Open
+  * Apple80211Close
+  * Apple80211BindToInterface
+  * Apple80211GetInfoCopy
+
+==In Progress==
+  * Apple80211Scan
+
+==Unknown==
+  * Apple80211GetIfListCopy
+  * Apple80211GetInterfaceNameCopy
+  * Apple80211GetInfoCopy
+  * Apple80211GetPower
+  * Apple80211SetPower
+  * Apple80211Scan
+  * Apple80211ScanAsync
+  * Apple80211ScanDynamic
+  * Apple80211Associate
+  * Apple80211Get
+  * Apple80211CopyValue
+  * Apple80211Set
+  * Apple80211EventMonitoringInit
+  * Apple80211StartMonitoringEvent
+  * Apple80211StopMonitoringEvent
+  * Apple80211EventMonitoringHalt
+  * Apple80211ParseWPAIE
+  * Apple80211ParseRSNIE
+  * Apple80211ParseAppleIE
+  * Apple80211Parse80211dIE
+
