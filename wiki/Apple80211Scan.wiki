@@ -11,7 +11,7 @@ Performs a scan for (in?)visible networks.
 *Returns*
 
   * 0 if successful, who knows what else otherwise (seems to be -1 if it doesn't crash)
-  * _list_ a CFArrayRef containing a `CFDictionaryRef` for each of the discovered networks
+  * _list_ a `CFArrayRef` containing a `CFDictionaryRef` for each of the discovered networks
 
 *Known `CFDictionary` keys for networks*
 
