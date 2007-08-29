@@ -13,17 +13,37 @@ Binds an open library handle to a named wireless interface.
 
 *Parameters*
 
-  * _handle_ An open handle from a {{{ Apple80211Open }}} call
+  * _handle_ An open handle from an {{{ Apple80211Open }}} call
   * _interface_ A pointer to a CFString containing the interface name (e.g. "en0")
 
+==Apple80211GetInfoCopy==
+Retrieves information from the currently bound interface.
+{{{ int Apple80211GetInfoCopy(void *handle, CFDictionaryRef *info); }}}
 
-{{{ int Apple80211GetInfoCopy(void *handle, CFArrayRef *info); }}}
+*Parameters*
 
+  * _handle_ An open handle from an {{{ Apple80211Open }}} call, that has also been bound to an interface using {{{ Apple80211BindToInterface }}}
+  * _info_ A (returned) pointer to a CFDictionary containing the information
+
+
+==Apple80211Scan==
+Performs a scan for visible networks.
 {{{ int Apple80211Scan(void *handle, CFArrayRef *list, void *unknown); }}}
 
+*Parameters*
+
+  * _handle_ An open handle from an {{{ Apple80211Open }}} call, that has also been bound to an interface using {{{ Apple80211BindToInterface }}}
+  * _list_ The (returned) list of {{{ CFDictionaryRef }}}s containing information on each discovered network
+  * _unknown_ Needs to point to valid memory. Who knows?
+
+
+==Apple80211Close==
 {{{ int Apple80211Close(void *handle); }}}
+Closes an open handle.
 
-
+*Parameters*
+  
+  * _handle_  An open handle from an {{{ Apple80211Open }}} call.
 
 
 
