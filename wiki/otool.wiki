@@ -1,0 +1,20 @@
+#Interesting otool information from various system components using wireless calls.
+
+= Introduction =
+
+This page contains interesting information gleaned with otool from the various system components which appear to use wireless calls.
+
+  * Aeropuerto
+  * AirPortSettings
+  * MobileMail
+  * Preferences
+  * SpringBoard
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
