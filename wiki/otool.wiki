@@ -144,6 +144,47 @@ single module    _PSGetAirplaneMode
 single module    _PSSetAirplaneMode
 }}}
 
+==SpringBoard==
+
+# otool -tvV SpringBoard | grep -e _ |grep -e "Apple\|Air\|80211\|IEEE"
+0001e3ac        eb019fcb        bl _CTPowerGetAirplaneMode
+00024748        eb0186e4        bl _CTPowerGetAirplaneMode
+00026de8        eb017d3c        bl _CTPowerGetAirplaneMode
+00027774        e59f3368        ldr r3, [pc, #872]      ;[0x00027ae4] = _kCTPowerAirplaneModeNotification
+0003f010        eb011cb2        bl _CTPowerGetAirplaneMode
+0003f0c0        eb011e06        bl _PSSetAirplaneMode
+000525f4        eb00d143        bl _Apple80211Open
+00052748        e59f1064        ldr r1, [pc, #100]      ;[0x000527b4] = _kSCPropNetAirPortJoinMode
+0005275c        e59f2054        ldr r2, [pc, #84]       ;[0x000527b8] = _kSCValNetAirPortJoinModeAutomatic
+00052818        eb00d0d5        bl _Apple80211Close
+00052bb0        eb00cfc8        bl _Apple80211CopyValue
+00052be4        eb00cfc4        bl _Apple80211GetInfoCopy
+00052d40        eb00cf64        bl _Apple80211CopyValue
+00052dd0        e59f20e4        ldr r2, [pc, #228]      ;[0x00052ebc] = 0x00090764 (@@ "_SBAirPortUpdateTimer")
+00052f1c        eb00cef6        bl _Apple80211GetInfoCopy
+00053090        eb00ceae        bl _Apple80211GetIfListCopy
+000530f4        eb00ce86        bl _Apple80211BindToInterface
+0005310c        eb00ce74        bl _Apple80211EventMonitoringInit
+00053118        eb00ce8f        bl _Apple80211StartMonitoringEvent
+00053124        eb00ce8c        bl _Apple80211StartMonitoringEvent
+00053130        eb00ce89        bl _Apple80211StartMonitoringEvent
+000532a8        eb00ce1c        bl _Apple80211GetPower
+0005333c        e59f2070        ldr r2, [pc, #112]      ;[0x000533b4] = 0x00090768 (@@ "_SBAirPortPowerChanged")
+00053364        e59f204c        ldr r2, [pc, #76]       ;[0x000533b8] = 0x00090770 (@@ "_SBAirPortConfigurationChanged")
+00066298        eb0082f8        bl _TPAirplaneSheetCreate
+00066474        eb008119        bl _PSSetAirplaneMode
+00068e08        eb007759        bl _Apple80211Close
+00068ea4        eb007717        bl _Apple80211Open
+00068ed4        eb00771d        bl _Apple80211GetIfListCopy
+00068f18        eb0076fd        bl _Apple80211BindToInterface
+00068f30        eb00770f        bl _Apple80211Close
+00068f4c        eb007708        bl _Apple80211Close
+000691c0        eb007740        bl _Apple80211Scan
+000694a8        eb007680        bl _Apple80211Associate
+00071e80        e59f311c        ldr r3, [pc, #284]      ;[0x00071fa4] = _kSCPropNetAirPortJoinMode
+00071e88        e59f3118        ldr r3, [pc, #280]      ;[0x00071fa8] = _kSCValNetAirPortJoinModePreferred
+
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
