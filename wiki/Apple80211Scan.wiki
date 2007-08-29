@@ -17,23 +17,23 @@ Performs a scan for (in?)visible networks.
 
 All keys are `CFString`s
 
-  * _SSID_STR_ - A `CFString` containing the ESSID (network name) of the network
-  * _RSN_IE_ - A `CFDictionary` of information on the RSN
-  * _WEP_ - A `CFBoolean` indicating whether the network is WEP-enabled
-  * _RSSI_ - An integer `CFNumber` indicating signal strength ([http://en.wikipedia.org/wiki/RSSI wikipedia])
-  * _AP_MODE_ - An integer `CFNumber` (possibly showing whether the network is from an AP or is an ad-hoc network)
-  * _SSID_ - A `CFData` (doesn't seem to match the SSID of the network, but maybe it's mangled somehow)
-  * _CHANNEL_ - An integer `CFNumber` of the channel the network was seen on
-  * _CHANNEL_FLAGS_ - An integer `CFNumber` (though I don't know what channel flags exist)
-  * _BEACON_INT_ - An integer `CFNumber` probably indicating the network's beacon interval (but I don't know the units yet)
-  * _CAPABILITIES_ - An integer `CFNumber` probably containing flags for the network's capabilities
-  * _scanWasDirected_ - A `CFBoolean` possibly indicating whether the scan was specifically directed at the network?
-  * _IE_ - A `CFData` containing miscellaneous information elements found on the beacons (I'm assuming)
-  * _APPLE_IE_ - A `CFDictionary` containing parsed Apple-specific (from Airport base stations) properties
-  * _BSSID_ - A `CFString` containing a standard colon-separated BSSID (MAC address) but that doesn't have leading 0's in the case of single hex digits
-  * _HIDDEN_NETWORK - A `CFBoolean` indicating whether the network is hidden (implies that it's performing a passive scan – needs more investigation)
-  * _AGE_ - An integer `CFNumber` possibly indicating whether this is a cached network from a previous scan?
-  * _NOISE_ - An integer `CFNumber` that appears to quantify how noisy the network signal is
+  * SSID_STR - A `CFString` containing the ESSID (network name) of the network
+  * RSN_IE - A `CFDictionary` of information on the RSN
+  * WEP - A `CFBoolean` indicating whether the network is WEP-enabled
+  * RSSI - An integer `CFNumber` indicating signal strength ([http://en.wikipedia.org/wiki/RSSI wikipedia])
+  * AP_MODE - An integer `CFNumber` (possibly showing whether the network is from an AP or is an ad-hoc network)
+  * SSID - A `CFData` (doesn't seem to match the SSID of the network, but maybe it's mangled somehow)
+  * CHANNEL - An integer `CFNumber` of the channel the network was seen on
+  * CHANNEL_FLAGS - An integer `CFNumber` (though I don't know what channel flags exist)
+  * BEACON_INT - An integer `CFNumber` probably indicating the network's beacon interval (but I don't know the units yet)
+  * CAPABILITIES - An integer `CFNumber` probably containing flags for the network's capabilities (possibly whether it's a/b/g?)
+  * scanWasDirected - A `CFBoolean` possibly indicating whether the scan was specifically directed at the network?
+  * IE - A `CFData` containing miscellaneous information elements found on the beacons (I'm assuming)
+  * APPLE_IE - A `CFDictionary` containing parsed Apple-specific (from Airport base stations) properties
+  * BSSID - A `CFString` containing a standard colon-separated BSSID (MAC address) but that doesn't have leading 0's in the case of single hex digits
+  * HIDDEN_NETWORK - A `CFBoolean` indicating whether the network is hidden (implies that it's performing a passive scan – needs more investigation)
+  * AGE - An integer `CFNumber` possibly indicating whether this is a cached network from a previous scan?
+  * NOISE - An integer `CFNumber` that appears to quantify how noisy the network signal is
 
 *Sample Output*
 
