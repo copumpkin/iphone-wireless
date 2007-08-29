@@ -1,15 +1,16 @@
 Retrieves information from the currently bound interface.
+
 {{{ int Apple80211GetInfoCopy(void *handle, CFDictionaryRef *info); }}}
 
 *Parameters*
 
-  * _handle_ An open handle from an {{{ Apple80211Open }}} call, that has also been bound to an interface using {{{ Apple80211BindToInterface }}}
+  * _handle_ An open handle from an `Apple80211Open` call, that has also been bound to an interface using `Apple80211BindToInterface`
   * _info_ A (returned) pointer to a CFDictionary containing the information
 
 *Sample Output*
 The following is the output of a CFShow on the returned CFDictionaryRef:
 
-`
+{{{
 <CFDictionary 0x1031a0 [0x383e8174]>{type = mutable, count = 11, capacity = 12, pairs = (
 	0 : <CFString 0x3a6df94c [0x383e8174]>{contents = "STATE"} = <CFNumber 0x104aa0 [0x383e8174]>{value = +4, type = kCFNumberSInt32Type}
 	2 : <CFString 0x3a6df9fc [0x383e8174]>{contents = "SSID_STR"} = <CFString 0x104ce0 [0x383e8174]>{contents = "Domus"}
@@ -34,4 +35,4 @@ The following is the output of a CFShow on the returned CFDictionaryRef:
 	)}
 	13 : <CFString 0x3a6df98c [0x383e8174]>{contents = "RATE"} = <CFNumber 0x103200 [0x383e8174]>{value = +54, type = kCFNumberSInt32Type}
 )}
-`
+}}}
