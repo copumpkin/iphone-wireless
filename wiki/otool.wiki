@@ -146,6 +146,7 @@ single module    _PSSetAirplaneMode
 
 ==SpringBoard==
 
+{{{
 # otool -tvV SpringBoard | grep -e _ |grep -e "Apple\|Air\|80211\|IEEE"
 0001e3ac        eb019fcb        bl _CTPowerGetAirplaneMode
 00024748        eb0186e4        bl _CTPowerGetAirplaneMode
@@ -183,7 +184,7 @@ single module    _PSSetAirplaneMode
 000694a8        eb007680        bl _Apple80211Associate
 00071e80        e59f311c        ldr r3, [pc, #284]      ;[0x00071fa4] = _kSCPropNetAirPortJoinMode
 00071e88        e59f3118        ldr r3, [pc, #280]      ;[0x00071fa8] = _kSCValNetAirPortJoinModePreferred
-
+}}}
 
 
 Add your content here.  Format your content with:
