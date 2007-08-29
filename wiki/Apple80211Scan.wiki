@@ -6,7 +6,7 @@ Performs a scan for (in?)visible networks.
 
   * _handle_ An open handle from an ` Apple80211Open` call, that has also been bound to an interface using`Apple80211BindToInterface`
   * _list_ The (returned) `CFArrayRef` of `CFDictionaryRef`s containing information on each discovered network
-  * _unknown_ Needs to point to valid memory. Who knows?
+  * _parameters_ Appears to expect a `CFDictionaryRef`, possibly containing scan parameters
 
 *Returns*
 
