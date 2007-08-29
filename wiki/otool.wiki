@@ -552,12 +552,19 @@ _MD5Final:
 00013fd0        eb0012ea        bl _ceilf
 }}}
 
+==MobileMail==
+
+otool -vVt /Applications/MobileMail.app/MobileMail | grep -e _ | grep -v _objc_msgSend | grep -e "Apple\|Air\|80211\|IEEE"
+0001db0c        eb00bc33        bl _CTPowerGetAirplaneMode
+00039654        eb004e39        bl _Apple80211Open
+00039800        eb004def        bl _Apple80211Close
+0003a4ac        eb004ac1        bl _Apple80211GetPower
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
-
 
 
 
