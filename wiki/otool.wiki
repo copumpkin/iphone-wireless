@@ -115,6 +115,7 @@ otool -vVt /Applications/MobileMail.app/MobileMail | grep -e _ | grep -v _objc_m
 
 # otool -vT /System/Library/Frameworks/Preferences.framework/Preferences| grep -e _ | grep -v _objc_msgSend | grep -e "Apple\|Air\|80211\|IEEE"
 {{{
+# otool -vtT /System/Library/Frameworks/Preferences.framework/Preferences| grep -e _ | grep -e "Apple\|Air\|80211\|IEEE"
 single module    _Apple80211Associate
 single module    _Apple80211BindToInterface
 single module    _Apple80211Close
@@ -142,6 +143,34 @@ single module    _Apple80211StopMonitoringEvent
 single module    _IEEE80211iPasswordHash
 single module    _PSGetAirplaneMode
 single module    _PSSetAirplaneMode
+_PSGetAirplaneMode:
+_PSSetAirplaneMode:
+_Apple80211Open:
+_Apple80211Close:
+_Apple80211GetIfListCopy:
+_Apple80211BindToInterface:
+_Apple80211GetInterfaceNameCopy:
+_Apple80211GetInfoCopy:
+_Apple80211GetPower:
+_Apple80211SetPower:
+_Apple80211Scan:
+_Apple80211ScanAsync:
+_Apple80211ScanDynamic:
+_Apple80211Associate:
+_Apple80211Get:
+_Apple80211CopyValue:
+_Apple80211Set:
+_Apple80211EventMonitoringInit:
+_Apple80211StartMonitoringEvent:
+_Apple80211StopMonitoringEvent:
+_Apple80211EventMonitoringHalt:
+_Apple80211ParseWPAIE:
+_Apple80211ParseRSNIE:
+_Apple80211ParseAppleIE:
+__build80211dIEDict:
+_Apple80211Parse80211dIE:
+_Apple80211ParseSES_IE:
+_IEEE80211iPasswordHash:
 }}}
 
 ==SpringBoard==
