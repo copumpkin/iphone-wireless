@@ -1,4 +1,4 @@
-Performs a scan for visible networks.
+Performs a scan for (in?)visible networks.
 
 {{{ int Apple80211Scan(void *handle, CFArrayRef *list, void *unknown); }}}
 
@@ -7,6 +7,11 @@ Performs a scan for visible networks.
   * _handle_ An open handle from an ` Apple80211Open` call, that has also been bound to an interface using`Apple80211BindToInterface`
   * _list_ The (returned) list of `CFDictionaryRef`s containing information on each discovered network
   * _unknown_ Needs to point to valid memory. Who knows?
+
+*Returns*
+
+  * 0 if successful, who knows what else otherwise (seems to be -1 if it doesn't crash)
+  * _list_ a CFDictionaryRef containing the discovered networks
 
 *Sample Output*
 
