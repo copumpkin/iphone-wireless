@@ -1,6 +1,6 @@
-{{{ int Apple80211Close(void *handle); }}}
-
 Closes an open handle.
+
+{{{ int Apple80211Close(void *handle); }}}
 
 *Parameters*
   
