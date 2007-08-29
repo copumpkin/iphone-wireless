@@ -8,6 +8,7 @@ Retrieves information from the currently bound interface.
   * _info_ A (returned) pointer to a CFDictionary containing the information
 
 *Sample Output*
+
 The following is the output of a CFShow on the returned CFDictionaryRef:
 
 {{{
