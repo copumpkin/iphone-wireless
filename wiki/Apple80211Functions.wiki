@@ -4,6 +4,7 @@
   * Apple80211Open - _Initializes the Apple80211 library._
   * Apple80211Close - _Closes an open handle._
   * Apple80211BindToInterface- _Binds an open library handle to a named wireless interface._
+  * Apple80211GetInterfaceNameCopy - _Retrieves the name of the currently bound interface._
   * Apple80211GetInfoCopy - _Retrieves information from the currently bound interface._
 
 ==In Progress==
@@ -11,7 +12,6 @@
 
 ==Unknown==
   * Apple80211GetIfListCopy
-  * Apple80211GetInterfaceNameCopy
   * Apple80211GetPower
   * Apple80211SetPower
   * Apple80211ScanAsync
