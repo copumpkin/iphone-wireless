@@ -12,10 +12,8 @@
 ==Unknown==
   * Apple80211GetIfListCopy
   * Apple80211GetInterfaceNameCopy
-  * Apple80211GetInfoCopy
   * Apple80211GetPower
   * Apple80211SetPower
-  * Apple80211Scan
   * Apple80211ScanAsync
   * Apple80211ScanDynamic
   * Apple80211Associate
@@ -30,4 +28,3 @@
   * Apple80211ParseRSNIE
   * Apple80211ParseAppleIE
   * Apple80211Parse80211dIE
-
