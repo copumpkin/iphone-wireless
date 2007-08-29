@@ -1,6 +1,6 @@
 Initializes the Apple80211 library.
 
-`int Apple80211Open(void **handle);`
+{{{ int Apple80211Open(void **handle); }}}
 
 *Parameters*
 
