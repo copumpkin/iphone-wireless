@@ -31,7 +31,7 @@ All keys are `CFString`s
   * IE - A `CFData` containing miscellaneous information elements found on the beacons (I'm assuming)
   * APPLE_IE - A `CFDictionary` containing parsed Apple-specific (from Airport base stations) properties
   * BSSID - A `CFString` containing a standard colon-separated BSSID (MAC address) but that doesn't have leading 0's in the case of single hex digits
-  * HIDDEN_NETWORK - A `CFBoolean` indicating whether the network is hidden (implies that it's performing a passive scan – needs more investigation)
+  * HIDDEN_NETWORK - A `CFBoolean` indicating whether the network is hidden (implies that it's performing a passive scan – verified)
   * AGE - An integer `CFNumber` possibly indicating whether this is a cached network from a previous scan?
   * NOISE - An integer `CFNumber` that appears to quantify how noisy the network signal is
 
