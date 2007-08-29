@@ -50,128 +50,6 @@ _MD5Update:
 _MD5Final:
 }}}
 
-{{{
-# otool -vVt /System/Library/SystemConfiguration/Aeropuerto.bundle/Aeropuerto | grep -e \"
-000015f4        e59fc00c        ldr r12, [pc, #12]      ;[0x00001608] = 0x0001ca00 (@ ": Scan failed: %d")
-00001600        e59fc004        ldr r12, [pc, #4]       ;[0x0000160c] = 0x0001cb04 (@ "OpenNetworkNotification: BOOTSTRAP_NOT_PRIVILIGED")
-00001930        e59f20fc        ldr r2, [pc, #252]      ;[0x00001a34] = 0x0001c7d8 (@ "encesLock() %s")
-000019bc        e59f2080        ldr r2, [pc, #128]      ;[0x00001a44] = 0x0001c75c (@ "): attempted ssid=%@ password=%@ err=%d")
-000019dc        e59f2064        ldr r2, [pc, #100]      ;[0x00001a48] = 0x0001c74c (@ "tionWithOptions(): attempted ssid=%@ password=%@ err=%d")
-00001a00        e59f2044        ldr r2, [pc, #68]       ;[0x00001a4c] = 0x0001c738 (@ "WiFi: performAssociationWithOptions(): attempted ssid=%@ password=%@ err=%d")
-00001aa0        e59f2044        ldr r2, [pc, #68]       ;[0x00001aec] = 0x0001c6a8 (@ "und for %s network %@")
-00001b58        e59f202c        ldr r2, [pc, #44]       ;[0x00001b8c] = 0x0001c600 (@ "d; missing APPLE80211KEY_SSID_STR")
-00001bac        e59f2014        ldr r2, [pc, #20]       ;[0x00001bc8] = 0x0001c5b8 (@ "ys remember new networks")
-00001c0c        e59f2024        ldr r2, [pc, #36]       ;[0x00001c38] = 0x0001c568 (@ "initialize System Configuration")
-00001c58        e59f3518        ldr r3, [pc, #1304]     ;[0x00002178] = 0x0001c530 (@ "ld not initialize SystemConfiguration.")
-00001c68        e59f350c        ldr r3, [pc, #1292]     ;[0x0000217c] = 0x0001c534 (@ "ot initialize SystemConfiguration.")
-00001d20        e59f2470        ldr r2, [pc, #1136]     ;[0x00002198] = 0x0001c484 (@ "fications(): SCDynamicStoreSetNotificationKeys() failed")
-00001d4c        e59f2448        ldr r2, [pc, #1096]     ;[0x0000219c] = 0x0001c464 (@ "reate() failed")
-00001e24        e59f2380        ldr r2, [pc, #896]      ;[0x000021ac] = 0x0001c3a0 (@ "attr, eventHandlerThread, NULL)")
-00001e70        e59f2340        ldr r2, [pc, #832]      ;[0x000021b8] = 0x0001c364 (@ "(&attr, PTHREAD_CREATE_DETACHED)")
-00001ea8        e59f230c        ldr r2, [pc, #780]      ;[0x000021bc] = 0x0001c33c (@ "it(&attr)")
-00001f08        e59f22b0        ldr r2, [pc, #688]      ;[0x000021c0] = 0x0001c2ec (@ "11/embeddedConfigd/embeddedConfigdMain.c")
-00001f44        e59f227c        ldr r2, [pc, #636]      ;[0x000021c8] = 0x0001c2c0 (@ "")
-00001f6c        e59f2258        ldr r2, [pc, #600]      ;[0x000021cc] = 0x0001c2a8 (@ "isValid")
-00001f94        e59f2234        ldr r2, [pc, #564]      ;[0x000021d0] = 0x0001c290 (@ "List of known networks")
-00001fbc        e59f2210        ldr r2, [pc, #528]      ;[0x000021d4] = 0x0001c278 (@ "RSN_IE")
-00001fe4        e59f21ec        ldr r2, [pc, #492]      ;[0x000021d8] = 0x0001c260 (@ "EY_WPA_AUTHSELS")
-0000200c        e59f21c8        ldr r2, [pc, #456]      ;[0x000021dc] = 0x0001c248 (@ "IE_KEY_RSN_AUTHSELS")
-00002034        e59f21a4        ldr r2, [pc, #420]      ;[0x000021e0] = 0x0001c230 (@ "")
-0000205c        e59f2180        ldr r2, [pc, #384]      ;[0x000021e4] = 0x0001c218 (@ ": Region = North America")
-00002084        e59f215c        ldr r2, [pc, #348]      ;[0x000021e8] = 0x0001c200 (@ ": Region = Europe")
-000020a4        e59f2140        ldr r2, [pc, #320]      ;[0x000021ec] = 0x0001c1f0 (@ "ailed: %d")
-000020bc        e59f312c        ldr r3, [pc, #300]      ;[0x000021f0] = 0x0001d27c (@ "_WSC_ACTIVE")
-000020c0        e59f012c        ldr r0, [pc, #300]      ;[0x000021f4] = 0x0001d218 (@ "SION")
-000020cc        e59f3124        ldr r3, [pc, #292]      ;[0x000021f8] = 0x0001d21c (@ "")
-0000210c        e59f20e8        ldr r2, [pc, #232]      ;[0x000021fc] = 0x0001c198 (@ "S")
-00002220        e59f3074        ldr r3, [pc, #116]      ;[0x0000229c] = 0x0001d0c0 (@ "MODE")
-00002250        e59f3048        ldr r3, [pc, #72]       ;[0x000022a0] = 0x0001d098 (@ "BA")
-000022c8        e59f82c0        ldr r8, [pc, #704]      ;[0x00002590] = 0x0001d0b0 (@ "")
-000022cc        e59f32c0        ldr r3, [pc, #704]      ;[0x00002594] = 0x0001d000 (@ "ME_COUNT")
-000022d4        e59f12bc        ldr r1, [pc, #700]      ;[0x00002598] = 0x0001d0d0 (@ "FLAGS")
-0000232c        e59f3270        ldr r3, [pc, #624]      ;[0x000025a4] = 0x0001d088 (@ "OR")
-00002398        e59fc20c        ldr r12, [pc, #524]     ;[0x000025ac] = 0x0001d020 (@ "TH_REASON")
-000023cc        e59f31e0        ldr r3, [pc, #480]      ;[0x000025b4] = 0x0001cfe4 (@ "STATS_TX_ERRORS")
-00002424        e59f3190        ldr r3, [pc, #400]      ;[0x000025bc] = 0x0001cf38 (@ "PA_UCIPHERS")
-000024f0        e59f50c8        ldr r5, [pc, #200]      ;[0x000025c0] = 0x0001cec0 (@ "T_TIME")
-00002504        e59f20b8        ldr r2, [pc, #184]      ;[0x000025c4] = 0x0001ce58 (@ "")
-00002508        e59f00b8        ldr r0, [pc, #184]      ;[0x000025c8] = 0x0001ce70 (@ "PROTMODE")
-0000252c        e59f4098        ldr r4, [pc, #152]      ;[0x000025cc] = 0x0001ce80 (@ "ON_INT")
-000025d0        e59f1048        ldr r1, [pc, #72]       ;[0x00002620] = 0x0001bcdc (@ "Notifications(): Apple80211EventMonitoringInit failed (%d)")
-00002624        e59f30e0        ldr r3, [pc, #224]      ;[0x0000270c] = 0x0001cd30 (@ "to %s")
-00002648        e59f00c0        ldr r0, [pc, #192]      ;[0x00002710] = 0x0001cccc (@ ": Apple80211GetPower = %d")
-00002664        e59f00a8        ldr r0, [pc, #168]      ;[0x00002714] = 0x0001cc78 (@ "Name=%@")
-00002684        e59f008c        ldr r0, [pc, #140]      ;[0x00002718] = 0x0001cc8c (@ "WiFi: Device powering %s")
-000026a4        e59f0070        ldr r0, [pc, #112]      ;[0x0000271c] = 0x0001cc2c (@ "): STATE: currentKey = %@")
-000026c4        e59f0054        ldr r0, [pc, #84]       ;[0x00002720] = 0x0001cc58 (@ "SCDynamicStoreEvent(): interfaceName=%@")
-000026e8        e59f1034        ldr r1, [pc, #52]       ;[0x00002724] = 0x0001cc2c (@ "): STATE: currentKey = %@")
-00002754        e59f20cc        ldr r2, [pc, #204]      ;[0x00002828] = 0x0001bb70 (@ "allback(): IORegistryEntryCreateCFProperties failed %d")
-00002784        e59f20a0        ldr r2, [pc, #160]      ;[0x0000282c] = 0x0001bb50 (@ "iled")
-00002838        e59f608c        ldr r6, [pc, #140]      ;[0x000028cc] = 0x0001cb9c (@ "@/%@/")
-00002898        e59f0030        ldr r0, [pc, #48]       ;[0x000028d0] = 0x0001cb3c (@ ": ajPostFindOpenNetworkNotification: BOOTSTRAP_SERVICE_ACTIVE")
-000028fc        e59f1078        ldr r1, [pc, #120]      ;[0x0000297c] = 0x0001b9ec (@ "e(): SCPreferencesLock() %s")
-00002928        e59f1050        ldr r1, [pc, #80]       ;[0x00002980] = 0x0001b9c0 (@ "esSetValue() %s")
-000029a8        e59f505c        ldr r5, [pc, #92]       ;[0x00002a0c] = 0x0001ca24 (@ ": %@")
-000029c8        e59f2040        ldr r2, [pc, #64]       ;[0x00002a10] = 0x0001c994 (@ "toJoinFlags=%d")
-000029e8        e59f0024        ldr r0, [pc, #36]       ;[0x00002a14] = 0x0001c9e0 (@ "_FLAGS")
-00002a20        e59f3254        ldr r3, [pc, #596]      ;[0x00002c7c] = 0x0001c8b8 (@ "_PASSWORD_MESSAGE")
-00002a34        e59f2244        ldr r2, [pc, #580]      ;[0x00002c80] = 0x0001c8fc (@ "enNetwork.port")
-00002a3c        e59f3240        ldr r3, [pc, #576]      ;[0x00002c84] = 0x0001c8a4 (@ "_PASSWORD_TITLE")
-00002a60        e59f2220        ldr r2, [pc, #544]      ;[0x00002c88] = 0x0001c8d0 (@ "_JOIN")
-00002ae8        e59f21ac        ldr r2, [pc, #428]      ;[0x00002c9c] = 0x0001c888 (@ "ropuerto")
-00002be4        e59f00c0        ldr r0, [pc, #192]      ;[0x00002cac] = 0x0001c78c (@ "ined: %@")
-00002c24        e59f008c        ldr r0, [pc, #140]      ;[0x00002cb8] = 0x0001c748 (@ "ociationWithOptions(): attempted ssid=%@ password=%@ err=%d")
-00002c40        e59f0078        ldr r0, [pc, #120]      ;[0x00002cc0] = 0x0001c728 (@ "in.: %@ - %d ")
-00002cf0        e59f30e8        ldr r3, [pc, #232]      ;[0x00002de0] = 0x0001c5f0 (@ "yMutable() failed; missing APPLE80211KEY_SSID_STR")
-00002d10        e59f10cc        ldr r1, [pc, #204]      ;[0x00002de4] = 0x0001c618 (@ "_SSID_STR")
-00002d14        e59f20cc        ldr r2, [pc, #204]      ;[0x00002de8] = 0x0001c5f0 (@ "yMutable() failed; missing APPLE80211KEY_SSID_STR")
-00002d30        e59f10b4        ldr r1, [pc, #180]      ;[0x00002dec] = 0x0001c604 (@ "issing APPLE80211KEY_SSID_STR")
-00002d4c        e59f10a0        ldr r1, [pc, #160]      ;[0x00002df4] = 0x0001c5f4 (@ "able() failed; missing APPLE80211KEY_SSID_STR")
-00002d64        e59f108c        ldr r1, [pc, #140]      ;[0x00002df8] = 0x0001c5b4 (@ "Always remember new networks")
-00002d68        e59f208c        ldr r2, [pc, #140]      ;[0x00002dfc] = 0x0001c5c8 (@ "networks")
-00003038        e59f31ac        ldr r3, [pc, #428]      ;[0x000031ec] = 0x0001c2a8 (@ "isValid")
-00003208        e59f6128        ldr r6, [pc, #296]      ;[0x00003338] = 0x0001c1c8 (@ ": Region = Japan")
-00003228        e59f010c        ldr r0, [pc, #268]      ;[0x0000333c] = 0x0001c0b8 (@ "hid.displayStatus")
-00003274        e59f50c4        ldr r5, [pc, #196]      ;[0x00003340] = 0x0001c15c (@ "RSSI")
-00003298        e59f30a4        ldr r3, [pc, #164]      ;[0x00003344] = 0x0001c048 (@ "WiFi: ioPublishedDriverCallback() couldn't send event (%@)")
-000032f4        e59f2054        ldr r2, [pc, #84]       ;[0x00003350] = 0x0001c06c (@ "uldn't send event (%@)")
-00003308        e59f0044        ldr r0, [pc, #68]       ;[0x00003354] = 0x0001c074 (@ "end event (%@)")
-00003378        e59f0050        ldr r0, [pc, #80]       ;[0x000033d0] = 0x0001bf68 (@ "fications(): registration for APPLE80211_M_INT_MIT_CHANGED failed (%x)")
-00003384        e59f2048        ldr r2, [pc, #72]       ;[0x000033d4] = 0x0001bf88 (@ "PLE80211_M_INT_MIT_CHANGED failed (%x)")
-000033ac        e59f0024        ldr r0, [pc, #36]       ;[0x000033d8] = 0x0001bf34 (@ "IC_ERROR_MCAST failed (%x)")
-00003404        e59f00c8        ldr r0, [pc, #200]      ;[0x000034d4] = 0x0001bedc (@ "_UCAST failed (%x)")
-00003408        e59f20c8        ldr r2, [pc, #200]      ;[0x000034d8] = 0x0001befc (@ "ple80211Notifications(): registration for APPLE80211_M_MIC_ERROR_MCAST failed (%x)")
-000034ec        e59f3a1c        ldr r3, [pc, #2588]     ;[0x00003f10] = 0x0001bdf0 (@ "tions(): registration for APPLE80211_M_BSSID_CHANGED failed (%x)")
-000034fc        e59f2a10        ldr r2, [pc, #2576]     ;[0x00003f14] = 0x0001be00 (@ "ation for APPLE80211_M_BSSID_CHANGED failed (%x)")
-00003514        e59f39fc        ldr r3, [pc, #2556]     ;[0x00003f18] = 0x0001be88 (@ "ed (%x)")
-00003534        e59f29e0        ldr r2, [pc, #2528]     ;[0x00003f1c] = 0x0001bdd8 (@ ": initApple80211Notifications(): registration for APPLE80211_M_BSSID_CHANGED failed (%x)")
-0000354c        e59f39cc        ldr r3, [pc, #2508]     ;[0x00003f20] = 0x0001be28 (@ "led (%x)")
-00003578        e59f89b0        ldr r8, [pc, #2480]     ;[0x00003f30] = 0x0001bde4 (@ "0211Notifications(): registration for APPLE80211_M_BSSID_CHANGED failed (%x)")
-00003584        e59f39a8        ldr r3, [pc, #2472]     ;[0x00003f34] = 0x0001bdb8 (@ "_M_SSID_CHANGED failed (%x)")
-00003588        e59fc9a8        ldr r12, [pc, #2472]    ;[0x00003f38] = 0x0001bd60 (@ "_CHANGED failed (%x)")
-00003634        e59f0900        ldr r0, [pc, #2304]     ;[0x00003f3c] = 0x0001bcac (@ "itApple80211Ref failed (%d)")
-00003638        e59f2900        ldr r2, [pc, #2304]     ;[0x00003f40] = 0x0001bccc (@ ": initApple80211Notifications(): Apple80211EventMonitoringInit failed (%d)")
-00003650        e59f38ec        ldr r3, [pc, #2284]     ;[0x00003f44] = 0x0001bd18 (@ "WiFi: initApple80211Notifications(): registration for APPLE80211_M_POWER_CHANGED failed (%x)")
-00003680        e59f88cc        ldr r8, [pc, #2252]     ;[0x00003f54] = 0x0001bcdc (@ "Notifications(): Apple80211EventMonitoringInit failed (%d)")
-000036a0        e59fc8b0        ldr r12, [pc, #2224]    ;[0x00003f58] = 0x0001bc48 (@ "dDriverCallback(): Not an 80211Controller interface.")
-000036ac        e59f38a8        ldr r3, [pc, #2216]     ;[0x00003f5c] = 0x0001bc90 (@ "Open failed (%x)")
-0000374c        e59f080c        ldr r0, [pc, #2060]     ;[0x00003f60] = 0x0001bb94 (@ "operties failed %d")
-00003750        e59f280c        ldr r2, [pc, #2060]     ;[0x00003f64] = 0x0001bbb4 (@ "ishedDriverCallback(): Device %@ already registered.")
-00003768        e59f37f8        ldr r3, [pc, #2040]     ;[0x00003f68] = 0x0001bc04 (@ "allback(): IOServiceAddInterestNotification() = %d")
-00003798        e59f87d8        ldr r8, [pc, #2008]     ;[0x00003f78] = 0x0001bbc8 (@ "): Device %@ already registered.")
-000037c0        e59f37b4        ldr r3, [pc, #1972]     ;[0x00003f7c] = 0x0001bb7c (@ "ORegistryEntryCreateCFProperties failed %d")
-000037c4        e59fc7b4        ldr r12, [pc, #1972]    ;[0x00003f80] = 0x0001bb24 (@ "): IORegistryEntrySearchCFProperty for %s failed")
-0000386c        e59f0710        ldr r0, [pc, #1808]     ;[0x00003f84] = 0x0001ba74 (@ " event (%@)")
-00003870        e59f2710        ldr r2, [pc, #1808]     ;[0x00003f88] = 0x0001ba94 (@ "otifcationCallback(): couldn't send event (%@)")
-00003888        e59f36fc        ldr r3, [pc, #1788]     ;[0x00003f8c] = 0x0001bae8 (@ "erest")
-000038b8        e59f86dc        ldr r8, [pc, #1756]     ;[0x00003f9c] = 0x0001baac (@ "uldn't send event (%@)")
-000038e0        e59f36b8        ldr r3, [pc, #1720]     ;[0x00003fa0] = 0x0001ba5c (@ "allback(): couldn't send event (%@)")
-000038e4        e59fc6b8        ldr r12, [pc, #1720]    ;[0x00003fa4] = 0x0001ba04 (@ " %s")
-0000398c        e59f3614        ldr r3, [pc, #1556]     ;[0x00003fa8] = 0x0001b9cc (@ " %s")
-00003990        e59f5614        ldr r5, [pc, #1556]     ;[0x00003fac] = 0x0001ba0c (@ ": dispatchEvent(): mach_msg_send() failed: %s")
-
-}}}
-
 ==AirPortSettings==
 
 {{{
@@ -233,10 +111,40 @@ otool -vVt /Applications/MobileMail.app/MobileMail | grep -e _ | grep -v _objc_m
 0003a4ac        eb004ac1        bl _Apple80211GetPower
 }}}
 
+==Preferenes==
+
+# otool -vT /System/Library/Frameworks/Preferences.framework/Preferences| grep -e _ | grep -v _objc_msgSend | grep -e "Apple\|Air\|80211\|IEEE"
+single module    _Apple80211Associate
+single module    _Apple80211BindToInterface
+single module    _Apple80211Close
+single module    _Apple80211CopyValue
+single module    _Apple80211EventMonitoringHalt
+single module    _Apple80211EventMonitoringInit
+single module    _Apple80211Get
+single module    _Apple80211GetIfListCopy
+single module    _Apple80211GetInfoCopy
+single module    _Apple80211GetInterfaceNameCopy
+single module    _Apple80211GetPower
+single module    _Apple80211Open
+single module    _Apple80211Parse80211dIE
+single module    _Apple80211ParseAppleIE
+single module    _Apple80211ParseRSNIE
+single module    _Apple80211ParseSES_IE
+single module    _Apple80211ParseWPAIE
+single module    _Apple80211Scan
+single module    _Apple80211ScanAsync
+single module    _Apple80211ScanDynamic
+single module    _Apple80211Set
+single module    _Apple80211SetPower
+single module    _Apple80211StartMonitoringEvent
+single module    _Apple80211StopMonitoringEvent
+single module    _IEEE80211iPasswordHash
+single module    _PSGetAirplaneMode
+single module    _PSSetAirplaneMode
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
-
 
