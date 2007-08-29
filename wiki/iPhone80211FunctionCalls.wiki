@@ -1,0 +1,33 @@
+==Apple80211Open==
+Initializes the Apple80211 library.
+{{{ int Apple80211Open(void **handle); }}}
+
+*Parameters*
+
+  * _handle_ The (returned) handle to the opened library
+
+
+==Apple80211BindToInterface==
+Binds an open library handle to a named wireless interface.
+{{{ int Apple80211BindToInterface(void *handle, CFStringRef interface); }}}
+
+*Parameters*
+
+  * _handle_ An open handle from a {{{ Apple80211Open }}} call
+  * _interface_ A pointer to a CFString containing the interface name (e.g. "en0")
+
+
+{{{ int Apple80211GetInfoCopy(void *handle, CFArrayRef *info); }}}
+
+{{{ int Apple80211Scan(void *handle, CFArrayRef *list, void *unknown); }}}
+
+{{{ int Apple80211Close(void *handle); }}}
+
+
+
+
+
+
+
+
+
