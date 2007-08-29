@@ -1,0 +1,7 @@
+{{{ int Apple80211Close(void *handle); }}}
+
+Closes an open handle.
+
+*Parameters*
+  
+  * _handle_  An open handle from an ` Apple80211Open` call.
