@@ -15,7 +15,7 @@ This page contains interesting information gleaned with otool from the various s
 
 == Aeropuerto ==
 {{{
-# otool -vVt Aeropuerto | grep -e ^_
+# otool -vVt /System/Library/SystemConfiguration/Aeropuerto.bundle/Aeropuerto | grep -e ^_
 _stop:
 _ajGetScanChannelArray:
 _start:
