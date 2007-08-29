@@ -7,6 +7,27 @@ Retrieves information from the currently bound interface.
   * _handle_ An open handle from an `Apple80211Open` call, that has also been bound to an interface using `Apple80211BindToInterface`
   * _info_ A (returned) pointer to a CFDictionary containing the information
 
+*Returns*
+
+  * 0 if successful, who knows what else otherwise (seems to be -1 if it doesn't crash)
+  * _info_ a `CFDictionaryRef` containing key/value pairs of information about the interface (see below)
+
+*Known `CFDictionary` keys for _info_*
+
+All keys are `CFString`s
+
+  * STATE - An integer `CFNumber` indicating the state of the device. Its value is 4 if the interface is associated
+  * SSID_STR - A `CFString` containing the network name the interface is currently associated with (may be absent if the interface is not associated)
+  * POWER - A `CFArray` that appears to contain one `CFNumber` (not sure what it means)
+  * BSSID - A `CFString` containing a colon-separated BSSID (MAC address) of the currently associated network (may be absent if the interface is not associated)
+  * TXPOWER - An integer `CFNumber` containing the current transmit power?
+  * POWERSAVE - An integer `CFNumber` indicating whether the device is currently in power saving mode?
+  * RSSI - A `CFDictionary` of information on the signal strength
+  * AUTH_TYPE - A `CFDictionary` of information on the authentication type?
+  * SSID - A `CFData` containing the currently associated SSID in an unknown format
+  * CHANNEL - A `CFDictionary` containing the channel and channel flags (the flags are currently unknown)
+  * RATE - An integer `CFNumber` containing the current rate of the connection (seems to be in megabits per second)
+
 *Sample Output*
 
 The following is the output of a CFShow on the returned CFDictionaryRef:
