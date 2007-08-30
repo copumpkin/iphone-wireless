@@ -39,7 +39,8 @@ All keys are `CFString`s
 
 All keys are `CFString`s
 
-
+  * SSID_STR - A `CFString` that requests which ESSID (network name) needs to be scanned
+  * SCAN_CHANNELS - A `CFArray` of `CFDictionary` objects, each containing `CFString`s for "CHANNEL" and "CHANNEL_FLAGS"
 
 *Sample Output*
 
