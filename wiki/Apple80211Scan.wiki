@@ -13,7 +13,7 @@ Performs a (passive) scan for networks.
   * 0 if successful, who knows what else otherwise (seems to be -1 if it doesn't crash)
   * _list_ a `CFArrayRef` containing a `CFDictionaryRef` for each of the discovered networks
 
-*Known dictionary keys for parameters*
+*Known keys for the _parameters_ dictionary*
 
 All keys are `CFString`s
 
