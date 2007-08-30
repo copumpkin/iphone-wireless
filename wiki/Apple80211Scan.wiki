@@ -13,6 +13,24 @@ Performs a (passive) scan for networks.
   * 0 if successful, who knows what else otherwise (seems to be -1 if it doesn't crash)
   * _list_ a `CFArrayRef` containing a `CFDictionaryRef` for each of the discovered networks
 
+*Known dictionary keys for parameters*
+
+All keys are `CFString`s
+
+  * SSID
+  * SSID_STR - A `CFString` that requests which ESSID (network name) needs to be scanned
+  * SCAN_CHANNELS - A `CFArray` of `CFDictionary` objects, each containing `CFString`s for "CHANNEL" and "CHANNEL_FLAGS"
+  * SCAN_MERGE
+  * SCAN_FLAGS
+  * SCAN_RSSI_THRESHOLD
+  * SCAN_BSS_TYPE
+  * IE
+  * SCAN_TYPE
+  * SCAN_PHY_MODE
+  * SCAN_DWELL_TIME
+  * SCAN_REST_TIME
+  * CAPABILITIES
+
 *Known dictionary keys for networks*
 
 All keys are `CFString`s
@@ -35,23 +53,6 @@ All keys are `CFString`s
   * AGE - An integer `CFNumber` possibly indicating whether this is a cached network from a previous scan?
   * NOISE - An integer `CFNumber` that appears to quantify how noisy the network signal is
 
-*Known dictionary keys for parameters*
-
-All keys are `CFString`s
-
-  * SSID
-  * SSID_STR - A `CFString` that requests which ESSID (network name) needs to be scanned
-  * SCAN_CHANNELS - A `CFArray` of `CFDictionary` objects, each containing `CFString`s for "CHANNEL" and "CHANNEL_FLAGS"
-  * SCAN_MERGE
-  * SCAN_FLAGS
-  * SCAN_RSSI_THRESHOLD
-  * SCAN_BSS_TYPE
-  * IE
-  * SCAN_TYPE
-  * SCAN_PHY_MODE
-  * SCAN_DWELL_TIME
-  * SCAN_REST_TIME
-  * CAPABILITIES
 
 *Sample Output*
 
