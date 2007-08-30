@@ -9,7 +9,7 @@
   * Apple80211GetIfListCopy - _Returns an array of available 802.11 devices._
 
 ==In Progress==
-  * Apple80211Scan - _Performs a scan for (in?)visible networks._
+  * Apple80211Scan - _Performs a (passive) scan for networks._
 
 ==Unknown==
   * Apple80211GetPower
