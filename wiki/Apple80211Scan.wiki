@@ -1,4 +1,4 @@
-Performs a scan for (in?)visible networks.
+Performs a (passive) scan for networks.
 
 {{{ int Apple80211Scan(void *handle, CFArrayRef *list, void *unknown); }}}
 
@@ -6,14 +6,14 @@ Performs a scan for (in?)visible networks.
 
   * _handle_ An open handle from an ` Apple80211Open` call, that has also been bound to an interface using`Apple80211BindToInterface`
   * _list_ The (returned) `CFArrayRef` of `CFDictionaryRef`s containing information on each discovered network
-  * _parameters_ Appears to expect a `CFDictionaryRef`, possibly containing scan parameters
+  * _parameters_ A `CFDictionaryRef` that contains scan parameters (see below)
 
 *Returns*
 
   * 0 if successful, who knows what else otherwise (seems to be -1 if it doesn't crash)
   * _list_ a `CFArrayRef` containing a `CFDictionaryRef` for each of the discovered networks
 
-*Known `CFDictionary` keys for networks*
+*Known dictionary keys for networks*
 
 All keys are `CFString`s
 
@@ -34,6 +34,12 @@ All keys are `CFString`s
   * HIDDEN_NETWORK - A `CFBoolean` indicating whether the network is hidden (implies that it's performing a passive scan – verified)
   * AGE - An integer `CFNumber` possibly indicating whether this is a cached network from a previous scan?
   * NOISE - An integer `CFNumber` that appears to quantify how noisy the network signal is
+
+*Known dictionary keys for parameters*
+
+All keys are `CFString`s
+
+
 
 *Sample Output*
 
