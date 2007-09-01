@@ -1,32 +1,32 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <dlfcn.h>
 
-void *dlHandle;
+void *dlHandle = 0;
 
-int (*__Apple80211Associate)();
-int (*__Apple80211BindToInterface)(void *, CFStringRef);
-int (*__Apple80211Close)(void *) ;
-int (*__Apple80211CopyValue)();
-int (*__Apple80211EventMonitoringHalt)();
-int (*__Apple80211EventMonitoringInit)();
-int (*__Apple80211Get)();
-int (*__Apple80211GetIfListCopy)(void *, CFArrayRef *);
-int (*__Apple80211GetInfoCopy)(void *, CFDictionaryRef *);
-int (*__Apple80211GetInterfaceNameCopy)(void *, CFStringRef *);
-int (*__Apple80211GetPower)();
-int (*__Apple80211Open)(void **);
-int (*__Apple80211Parse80211dIE)();
-int (*__Apple80211ParseAppleIE)();
-int (*__Apple80211ParseRSNIE)();
-int (*__Apple80211ParseSES_IE)();
-int (*__Apple80211ParseWPAIE)();
-int (*__Apple80211Scan)(void *, CFArrayRef *, CFDictionaryRef);
-int (*__Apple80211ScanAsync)();
-int (*__Apple80211ScanDynamic)();
-int (*__Apple80211Set)();
-int (*__Apple80211SetPower)();
-int (*__Apple80211StartMonitoringEvent)();
-int (*__Apple80211StopMonitoringEvent)();
+int (*__Apple80211Associate)() = 0;
+int (*__Apple80211BindToInterface)(void *, CFStringRef) = 0;
+int (*__Apple80211Close)(void *) = 0;
+int (*__Apple80211CopyValue)() = 0;
+int (*__Apple80211EventMonitoringHalt)() = 0;
+int (*__Apple80211EventMonitoringInit)() = 0;
+int (*__Apple80211Get)() = 0;
+int (*__Apple80211GetIfListCopy)(void *, CFArrayRef *) = 0;
+int (*__Apple80211GetInfoCopy)(void *, CFDictionaryRef *) = 0;
+int (*__Apple80211GetInterfaceNameCopy)(void *, CFStringRef *) = 0;
+int (*__Apple80211GetPower)() = 0;
+int (*__Apple80211Open)(void **) = 0;
+int (*__Apple80211Parse80211dIE)() = 0;
+int (*__Apple80211ParseAppleIE)() = 0;
+int (*__Apple80211ParseRSNIE)() = 0;
+int (*__Apple80211ParseSES_IE)() = 0;
+int (*__Apple80211ParseWPAIE)() = 0;
+int (*__Apple80211Scan)(void *, CFArrayRef *, CFDictionaryRef) = 0;
+int (*__Apple80211ScanAsync)() = 0;
+int (*__Apple80211ScanDynamic)() = 0;
+int (*__Apple80211Set)() = 0;
+int (*__Apple80211SetPower)() = 0;
+int (*__Apple80211StartMonitoringEvent)() = 0;
+int (*__Apple80211StopMonitoringEvent)() = 0;
 
 #define EXPECT(condition) if(!condition) { printf("failed: %s\n", #condition);  return; }
 
