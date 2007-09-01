@@ -18,7 +18,9 @@ Apple80211: $(objects)
 	$(CC) $(CFLAGS) -c $(CPPFLAGS) $< -dynamic -o $@
 
 install:
-	cp -r Apple80211.framework /Developer/SDKs/iPhone/heavenly/System/Library/Frameworks/
+	cp -r Apple80211.framework /usr/local/arm-apple-darwin/heavenly/System/Library/Frameworks/
+	mkdir -p /usr/local/arm-apple-darwin/arm-apple-darwin/include/Apple80211
+	cp Apple80211.h /usr/local/arm-apple-darwin/arm-apple-darwin/include/Apple80211/
 
 clean:
 	rm -f *.o Apple80211
