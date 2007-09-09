@@ -1,7 +1,8 @@
 #summary Quick notes on installing the toolchain
 
-Install XCode 2.4.1
-Install MacPorts
+  * Install XCode 2.4.1
+  * Install MacPorts
+  * Perform the following commands
 {{{
 mkdir ~/iphone-dev
 cd ~/iphone-dev
