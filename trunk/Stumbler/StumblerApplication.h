@@ -5,6 +5,8 @@
 #import <UIKit/UIThreePartButton.h>
 #import <UIKit/UIWindow.h>
 #import <UIKit/UIView-Hierarchy.h>
+#import <UIKit/UIView.h>
+#import <UIKit/UITransitionView.h>
 #import <UIKit/UIHardware.h>
 #import <UIKit/UITable.h>
 #import <UIKit/UIDateLabel.h>
@@ -24,29 +26,31 @@
 #import <UIKit/UIImageAndTextTableCell.h>
 #include <dlfcn.h>
 
+//#import "MSNetworkDetailsView.h"
+#import "MSNetworksView.h"
+
+//@class MSNetworkDetailsView;
+@class MSNetworksView;
+
 @interface StumblerTableCell : UITableCell {
     UITextLabel *network_name;
     UITextLabel *bssid;
 }   
-
+- (id) initWithNetwork: (NSDictionary *)network;
 @end
 
 @interface StumblerApplication : UIApplication {
-    NSMutableArray *openNetworks;
-    NSMutableArray *protectedNetworks;
-    
-    UINavigationItem *title;
-    
-    UISectionList *sectionList;
-    
-    void *libHandle;
-    void *airportHandle;
-    
-    int (*open)(void *);
-    int (*bind)(void *, NSString *);
-    int (*close)(void *);
-    int (*scan)(void *, NSArray **, void *);
-    
+    UIWindow *mainWindow;
+    UIView *mainView;
+    UITransitionView *transitionView;
+	
+    //MSNetworkDetailsView *networkDetailsView;
+    MSNetworksView *networksView;
 }
-
++ (StumblerApplication *)sharedInstance;
+- (void)applicationDidFinishLaunching:(id)unused;
+//- (void)applicationWillSuspend;
+- (void)enableiPhonePreference;
+//- (void)showNetworkDetails;
+- (void)showNetworksViewWithTransition:(int)trans;
 @end

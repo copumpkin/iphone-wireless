@@ -46,7 +46,7 @@
 }
 
 @end
-
+static StumblerApplication *sharedInstance;
 @implementation StumblerApplication
 - (void) showAlert: (NSString *) msg
 {
@@ -67,160 +67,42 @@
 {
 	[sheet dismiss];
 }
-- (int) numberOfRowsInTable: (UITable *)table
++ (StumblerApplication *)sharedInstance
 {
-    return [openNetworks count] + [protectedNetworks count];
+	if (!sharedInstance)
+		sharedInstance = [[StumblerApplication alloc] init];
+	
+	return sharedInstance;
 }
-
-- (NSDictionary *) itemForIndex: (int)index
-{
-    if (index < [openNetworks count]) {
-        return [openNetworks objectAtIndex: index];
-    } else {
-        return [protectedNetworks objectAtIndex: index - [openNetworks count]];        
-    }
-}
-
-- (BOOL) isProtected: (NSDictionary *)network
-{
-    return ([network objectForKey:@"WEP"] && [[network objectForKey:@"WEP"] boolValue]) || [network objectForKey:@"WPA_IE"];
-}
-
-- (UITableCell *) table: (UITable *)table cellForRow: (int)row column: (int)col
-{
-    StumblerTableCell *cell = [[StumblerTableCell alloc] initWithNetwork: [self itemForIndex: row]];
-    
-    return cell;
-}
-
-- (UITableCell *) table: (UITable *)table cellForRow: (int)row column: (int)col
-    reusing: (BOOL) reusing
-{
-    return [self table: table cellForRow: row column: col];
-}
-
-- (void)scan
-{
-    NSArray *networks;
-    NSDictionary *parameters = [[NSDictionary alloc] init];
-        
-    scan(airportHandle, &networks, parameters);
-        
-    [openNetworks removeAllObjects];
-    [protectedNetworks removeAllObjects];
-    
-    int i;
-    for (i = 0; i < [networks count]; i++) {
-        if ([self isProtected: [networks objectAtIndex: i]]) {
-            [protectedNetworks addObject: [networks objectAtIndex: i]];
-        } else {
-            [openNetworks addObject: [networks objectAtIndex: i]];            
-        }
-	NSDictionary *net = [networks objectAtIndex: i];
-	NSEnumerator *netenum = [net keyEnumerator];
-	id key;
-	while ((key = [netenum nextObject])) {
-		NSLog(@"%@:%@",key,[net objectForKey: key]);
-	}
-    }
-    
-    [title setTitle:[NSString stringWithFormat:@"Networks (%d)", [openNetworks count] + [protectedNetworks count]]];
-}
-
-
-- (void)navigationBar:(UINavigationBar*)navbar buttonClicked:(int)button 
-{
-    [self scan];
-    
-    [sectionList reloadData];
-}
-
-- (int)numberOfSectionsInSectionList:(UISectionList *)aSectionList {
-    int count = 0;
-    if ([openNetworks count] > 0) {
-        count++;
-    }
-    
-    if ([protectedNetworks count] > 0) {
-        count++;
-    }
-    
-    return count;
-}
-        
-- (NSString *)sectionList:(UISectionList *)aSectionList titleForSection:(int)section {    
-    if (section == 1) {
-        return @"Protected"; 
-    } else {
-        return @"Open";
-    }
-}       
-        
-- (int)sectionList:(UISectionList *)aSectionList rowForSection:(int)section {
-    if (section == 1) {
-        return [openNetworks count]; 
-    } else {
-        return 0;
-    }
-}
-
 - (void) applicationDidFinishLaunching: (id) unused
 {
-    UIWindow *window;
-
-    window = [[UIWindow alloc] initWithContentRect: [UIHardware
-        fullScreenApplicationContentRect]];
-        
-    [window orderFront: self];
-    [window makeKey: self];
-    [window _setHidden: NO];
- 
-    UINavigationBar *nav = [[UINavigationBar alloc] initWithFrame: CGRectMake(
-        0.0f, 0.0f, 320.0f, 48.0f)];
-    [nav showButtonsWithLeftTitle: nil rightTitle: @"Rescan" leftBack: YES];
-    [nav setBarStyle: 0];
-    [nav setDelegate: self];
-
-    title = [[UINavigationItem alloc] initWithTitle: @"Networks"];
-    [nav pushNavigationItem: title];
-
+    sharedInstance = self;
     struct CGRect rect = [UIHardware fullScreenApplicationContentRect];
     rect.origin.x = rect.origin.y = 0.0f;
-    UIView *mainView;
-    mainView = [[UIView alloc] initWithFrame: rect];
-
-    libHandle = dlopen("/System/Library/Frameworks/Preferences.framework/Preferences", RTLD_LAZY);
-
-    open = dlsym(libHandle, "Apple80211Open");
-    bind = dlsym(libHandle, "Apple80211BindToInterface");
-    close = dlsym(libHandle, "Apple80211Close");
-    scan = dlsym(libHandle, "Apple80211Scan");
-    
-    open(&airportHandle);
-    bind(airportHandle, @"en0");
-    
-    openNetworks = [[NSMutableArray alloc] init];
-    protectedNetworks = [[NSMutableArray alloc] init];
-    
-    [self scan];
-    
-    [mainView addSubview: nav]; 
-    
-    sectionList = [[UISectionList alloc] initWithFrame:CGRectMake(0.0f, 48.0f, 320.0f, 480.0f - 16.0f - 32.0f) showSectionIndex:NO];
-    [sectionList setDataSource:self];
-    [sectionList reloadData];
-    [mainView addSubview:sectionList];
-
-    UISectionTable *table = [sectionList table];
-    [table setShouldHideHeaderInShortLists:NO];
-    UITableColumn *packageColumn = [[UITableColumn alloc] initWithTitle:@"Network Name" identifier:@"name" width:320.0f];
-
-    [table addTableColumn:packageColumn];
-    [table setSeparatorStyle:1];
-    [table setRowHeight:64.0f];
-    [table setDelegate:self];
-    
-    [window setContentView: mainView]; 
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    float whiteComponents[4] = {1, 1, 1, 1};
+    float transparentComponents[4] = {0, 0, 0, 0};
+    transitionView = [[UITransitionView alloc] initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)];
+    mainView = [[UIView alloc] initWithFrame:rect];
+    [mainView addSubview:transitionView];
+    mainWindow = [[UIWindow alloc] initWithContentRect:rect];
+    [mainWindow setContentView:mainView];
+    [mainWindow orderFront:self];
+    [mainWindow makeKey:self];
+    [mainWindow _setHidden:NO];
+    [self showNetworksViewWithTransition:1];
 }
-
+- (void)enableiPhonePreference
+{
+}
+- (void)showNetworksViewWithTransition:(int)trans
+{
+	if (!networksView)
+	{
+		struct CGRect rect = [UIHardware fullScreenApplicationContentRect];
+		rect.origin.x = rect.origin.y = 0.0f;
+		networksView = [[MSNetworksView alloc] initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)];
+	}
+	[transitionView transition:trans toView:networksView];
+}
 @end
