@@ -32,7 +32,7 @@
     [self addSubview: network_name];
 
     [self setShowDisclosure: YES];
-    [self setDisclosureStyle: 1];
+    [self setDisclosureStyle: 2];
 
     return self;
 }
@@ -74,6 +74,14 @@ static StumblerApplication *sharedInstance;
 	
 	return sharedInstance;
 }
+- (void)currentNetwork:(NSDictionary *)network
+{
+	currentNetwork = network;
+}
+- (NSDictionary *)currentNetwork
+{
+	return currentNetwork;
+}
 - (void) applicationDidFinishLaunching: (id) unused
 {
     sharedInstance = self;
@@ -105,4 +113,16 @@ static StumblerApplication *sharedInstance;
 	}
 	[transitionView transition:trans toView:networksView];
 }
+- (void)showNetworkDetailsViewWithTransition:(int)trans
+{
+	if (!networkDetailsView)
+	{
+		struct CGRect rect = [UIHardware fullScreenApplicationContentRect];
+		rect.origin.x = rect.origin.y = 0.0f;
+		networkDetailsView = [[MSNetworkDetailsView alloc] initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)];
+	}
+	[networkDetailsView reloadTableData];
+	[transitionView transition:trans toView:networkDetailsView];
+}
+
 @end

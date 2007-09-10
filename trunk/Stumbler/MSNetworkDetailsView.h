@@ -5,40 +5,34 @@
 #import <UIKit/UIApplication.h>
 #import <UIKit/UIKit.h>
 #import <UIKit/UIView.h>
-#import <UIKit/UITable.h>
-#import <UIKit/UITableColumn.h>
-#import <UIKit/UITableCell.h>
+
+#import <UIKit/UIPreferencesTable.h>
+#import <UIKit/UIPreferencesTableCell.h>
+#import <UIKit/UIPreferencesTextTableCell.h>
+#import <UIKit/UIPreferencesDeleteTableCell.h>
 #import <UIKit/UINavigationBar.h>
 
 #import "StumblerApplication.h"
 
 @class StumblerApplication;
-@class StumblerTableCell;
 
-@interface MSNetworksView : UIView {
+@interface MSNetworkDetailsView : UIView {
 	UINavigationBar *navBar;
-	UISectionTable *stable;
+	UITable *table;
+	NSDictionary *network;
 	StumblerApplication *ms;
-	NSMutableArray *openNetworks;
-	NSMutableArray *protectedNetworks;
-	UINavigationItem *title;
-	UISectionList *sectionList;
-	void *libHandle;
-	void *airportHandle;
-	int (*open)(void *);
-	int (*bind)(void *, NSString *);
-	int (*close)(void *);
-	int (*scan)(void *, NSArray **, void *);
 }
+
 - (id)initWithFrame:(struct CGRect)frame;
-- (void)scan;
+- (void)reloadTableData;
 
 //Delegate Methods
 - (void)navigationBar:(UINavigationBar*)bar buttonClicked:(int)button;
-- (void)tableRowSelected:(NSNotification *)notification;
 
 //DataSource Methods
-- (NSDictionary *) itemForIndex: (int)index;
+- (void)tableRowSelected:(NSNotification *)notification;
+- (BOOL)table:(UITable*)table canSelectRow:(int)row;
+//DataSource Methods
 - (int)numberOfRowsInTable:(UITable *)table;
 - (UITableCell *)table:(UITable *)table cellForRow:(int)row column:(int)col;
 

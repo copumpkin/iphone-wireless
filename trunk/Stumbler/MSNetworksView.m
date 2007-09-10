@@ -97,9 +97,8 @@
 }
 - (void)tableRowSelected:(NSNotification *)notification
 {
-//	[AccountsManager setCurrentAccount:[table selectedRow]];
-
-//	(editMode) ? ([mm showAccountDetails]) : ([mm showTransactionsViewWithTransition:1]);
+	[ms currentNetwork:[self itemForIndex:[stable selectedRow]]];
+	[ms showNetworkDetailsViewWithTransition:1];
 }
 
 #pragma mark ----------Datasource Methods-----------
