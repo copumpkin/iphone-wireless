@@ -53,6 +53,8 @@ All keys are `CFString`s
   * AGE - An integer `CFNumber` possibly indicating whether this is a cached network from a previous scan?
   * NOISE - An integer `CFNumber` that appears to quantify how noisy the network signal is
 
+*Notes*
+For some reason, the first scan always appears to return fewer results than subsequent ones, assuming the results are accessed in between. This is puzzling behavior, and we're looking into it.
 
 *Sample Output*
 
