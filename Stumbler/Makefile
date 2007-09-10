@@ -1,11 +1,11 @@
-VERSION=0.05.`date +%s`
+VERSION=0.04.`date +%s`
 CC=arm-apple-darwin-cc
 LD=$(CC)
 CFLAGS=
 LDFLAGS=-lobjc -framework CoreFoundation -framework Foundation -framework UIKit -framework LayerKit -framework CoreGraphics
 all:    Stumbler
 
-Stumbler:  stumbler.o StumblerApplication.o MSNetworksView.o
+Stumbler:  stumbler.o StumblerApplication.o MSNetworksView.o MSNetworkDetailsView.o
 	$(LD) $(LDFLAGS) -o $@ $^
 	@echo $(VERSION)>VERSION
 

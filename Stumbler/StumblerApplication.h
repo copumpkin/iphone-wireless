@@ -26,10 +26,10 @@
 #import <UIKit/UIImageAndTextTableCell.h>
 #include <dlfcn.h>
 
-//#import "MSNetworkDetailsView.h"
+#import "MSNetworkDetailsView.h"
 #import "MSNetworksView.h"
 
-//@class MSNetworkDetailsView;
+@class MSNetworkDetailsView;
 @class MSNetworksView;
 
 @interface StumblerTableCell : UITableCell {
@@ -43,14 +43,16 @@
     UIWindow *mainWindow;
     UIView *mainView;
     UITransitionView *transitionView;
-	
-    //MSNetworkDetailsView *networkDetailsView;
+		NSDictionary *currentNetwork;
+    MSNetworkDetailsView *networkDetailsView;
     MSNetworksView *networksView;
 }
 + (StumblerApplication *)sharedInstance;
 - (void)applicationDidFinishLaunching:(id)unused;
+- (NSDictionary *)currentNetwork;
+- (void)currentNetwork:(NSDictionary *)network;
 //- (void)applicationWillSuspend;
 - (void)enableiPhonePreference;
-//- (void)showNetworkDetails;
+- (void)showNetworkDetailsViewWithTransition:(int)trans;
 - (void)showNetworksViewWithTransition:(int)trans;
 @end
