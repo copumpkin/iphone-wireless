@@ -20,7 +20,7 @@ All keys are `CFString`s
   * SSID
   * SSID_STR - A `CFString` that requests which ESSID (network name) needs to be scanned
   * SCAN_CHANNELS - A `CFArray` of `CFDictionary` objects, each containing `CFString`s for "CHANNEL" and "CHANNEL_FLAGS"
-  * SCAN_MERGE
+  * SCAN_MERGE - A `CFBoolean` that specifies whether the function should return multiple BSSIDs for the same network name. Defaults to true.
   * SCAN_FLAGS
   * SCAN_RSSI_THRESHOLD
   * SCAN_BSS_TYPE
@@ -53,9 +53,6 @@ All keys are `CFString`s
   * AGE - An integer `CFNumber` possibly indicating whether this is a cached network from a previous scan?
   * NOISE - An integer `CFNumber` that appears to quantify how noisy the network signal is
 
-*Notes*
-
-For some reason, the first scan always appears to return fewer results than subsequent ones, assuming the results are accessed in between. This is puzzling behavior, and we're looking into it.
 
 *Sample Output*
 
