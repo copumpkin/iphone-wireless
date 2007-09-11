@@ -24,12 +24,10 @@ All keys are `CFString`s
   * SCAN_FLAGS
   * SCAN_RSSI_THRESHOLD
   * SCAN_BSS_TYPE
-  * IE
   * SCAN_TYPE
   * SCAN_PHY_MODE
   * SCAN_DWELL_TIME
   * SCAN_REST_TIME
-  * CAPABILITIES
 
 *Known dictionary keys for networks*
 
