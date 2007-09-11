@@ -1,1 +1,12 @@
 The struct that gets passed around in these calls. More on it when I'm not falling asleep.
+
+{{{
+
+struct Apple80211 {
+    int file_descriptor;
+    char interface_name[32];
+
+    // Here lie unknown dragons
+};
+
+}}}
