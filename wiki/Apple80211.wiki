@@ -1,0 +1,1 @@
+The struct that gets passed around in these calls. More on it when I'm not falling asleep.
