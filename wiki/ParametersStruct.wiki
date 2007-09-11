@@ -22,7 +22,6 @@ struct Apple80211Parameters {
         int channel_flags;
     } channels[64];
     int    flags;   // offset 0x348
-    int unk3;
 };
 
 }}}
