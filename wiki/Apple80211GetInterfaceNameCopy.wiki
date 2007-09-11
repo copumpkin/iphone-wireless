@@ -1,6 +1,6 @@
 Retrieves the name of the currently bound interface.
 
-{{{ int Apple80211GetInterfaceNameCopy(void *handle, CFStringRef *name); }}}
+{{{ int Apple80211GetInterfaceNameCopy(struct Apple80211 *handle, CFStringRef *name); }}}
 
 *Parameters*
 
