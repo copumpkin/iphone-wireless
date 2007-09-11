@@ -1,6 +1,6 @@
 Binds an open library handle to a named wireless interface.
 
-{{{ int Apple80211BindToInterface(void *handle, CFStringRef interface); }}}
+{{{ int Apple80211BindToInterface(struct Apple80211 *handle, CFStringRef interface); }}}
 
 *Parameters*
 
