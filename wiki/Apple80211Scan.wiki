@@ -17,10 +17,10 @@ Performs a (passive) scan for networks.
 
 All keys are `CFString`s
 
-  * SSID
-  * SSID_STR - A `CFString` that requests which ESSID (network name) needs to be scanned
+  * SSID - A `CFData` that requests which ESSID (network name) should be scanned
+  * SSID_STR - A `CFString` version of the SSID
   * SCAN_CHANNELS - A `CFArray` of `CFDictionary` objects, each containing `CFString`s for "CHANNEL" and "CHANNEL_FLAGS"
-  * SCAN_MERGE - A `CFBoolean` that specifies whether the function should return multiple BSSIDs for the same network name. Defaults to true.
+  * SCAN_MERGE - A `CFBoolean` that specifies whether the function should discard multiple BSSIDs for the same network name. Defaults to true.
   * SCAN_FLAGS
   * SCAN_RSSI_THRESHOLD
   * SCAN_BSS_TYPE
