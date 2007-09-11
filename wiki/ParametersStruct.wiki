@@ -1,0 +1,15 @@
+The Scan functions take a parameters `CFDictionary` that is translated internally into a struct. This is me attempting to work out what that struct contains:
+
+{{{
+
+struct Parameters {
+    char unk0[20];
+    char ssid_str[32]; // offset 0x14
+    
+
+
+
+
+};
+
+}}}
