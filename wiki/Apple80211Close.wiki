@@ -5,3 +5,7 @@ Closes an open handle.
 *Parameters*
   
   * _handle_  An open handle from an ` Apple80211Open` call.
+
+*Returns*
+
+  * -1 if the handle is NULL
