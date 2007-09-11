@@ -1,4 +1,4 @@
-The Scan functions take a parameters `CFDictionary` that is translated internally into a struct. This is me attempting to work out what that struct contains:
+The Scan functions take a parameters `CFDictionary` that is translated internally into a struct. This is me attempting to work out what that struct contains. Note that this is for RE reference only, as the struct is never exposed through the Apple80211 library, and is built internally.
 
 merge = true by default
 
