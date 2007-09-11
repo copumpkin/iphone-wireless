@@ -1,6 +1,6 @@
 Performs a (passive) scan for networks.
 
-{{{ int Apple80211Scan(void *handle, CFArrayRef *list, CFDictionaryRef *parameters); }}}
+{{{ int Apple80211Scan(struct Apple80211 *handle, CFArrayRef *list, CFDictionaryRef *parameters); }}}
 
 *Parameters*
 
