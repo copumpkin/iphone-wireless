@@ -1,5 +1,7 @@
 The Scan functions take a parameters `CFDictionary` that is translated internally into a struct. This is me attempting to work out what that struct contains:
 
+merge = true by default
+
 {{{
 
 struct Parameters {
