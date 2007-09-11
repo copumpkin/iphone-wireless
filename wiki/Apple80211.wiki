@@ -1,12 +1,10 @@
-The struct that gets passed around in these calls. More on it when I'm not falling asleep.
+The struct that gets passed around in these calls. This seems to be it:
 
 {{{
 
 struct Apple80211 {
     int socket_fd;
     char interface_name[32];
-
-    // Here lie unknown dragons
 };
 
 }}}
