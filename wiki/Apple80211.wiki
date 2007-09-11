@@ -4,7 +4,9 @@ The struct that gets passed around in these calls. The interface name is shorter
 
 struct Apple80211 {
     int socket_fd;
-    char interface_name[32];
+    char interface_name[20];
+    int monitoring_handle; // ?
+    int unknown;
 };
 
 }}}
