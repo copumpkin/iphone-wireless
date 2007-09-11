@@ -1,4 +1,4 @@
-The struct that gets passed around in these calls. This seems to be it:
+The struct that gets passed around in these calls. The interface name is shorter, but the total size is 36.
 
 {{{
 
