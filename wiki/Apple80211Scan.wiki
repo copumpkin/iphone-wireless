@@ -20,7 +20,7 @@ All keys are `CFString`s
   * SSID - A `CFData` that requests which ESSID (network name) should be scanned
   * SSID_STR - A `CFString` version of the SSID
   * SCAN_CHANNELS - A `CFArray` of `CFDictionary` objects, each containing `CFString`s for "CHANNEL" and "CHANNEL_FLAGS"
-  * SCAN_MERGE - A `CFBoolean` that specifies whether the function should discard multiple BSSIDs for the same network name. Defaults to true.
+  * SCAN_MERGE (true if unspecified) - A `CFBoolean` that specifies whether the function should discard multiple BSSIDs for the same network name.
   * SCAN_FLAGS (0 if unspecified)
   * SCAN_RSSI_THRESHOLD
   * SCAN_BSS_TYPE (3 if unspecified)
