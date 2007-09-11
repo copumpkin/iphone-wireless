@@ -1,6 +1,6 @@
 Returns an array of available 802.11 devices.
 
-{{{ int Apple80211GetIfListCopy(void *handle, CFArrayRef *list); }}}
+{{{ int Apple80211GetIfListCopy(struct Apple80211 *handle, CFArrayRef *list); }}}
 
 *Parameters*
 
