@@ -3,15 +3,19 @@ The Scan functions take a parameters `CFDictionary` that is translated internall
 {{{
 
 struct Parameters {
-    char unk0[8];
+    char unk0[4];
+    int scan_bss_type; //offset 0x4 (defaults to 3)
     char bssid[6];        // offset 0x8
     char unk1[2];        // offset 0xE
     int ssid_str_len; // offset 0x10
     char ssid_str[32]; // offset 0x14
-    
+    int scan_type; // offset 0x34 (defaults to 1)
+    int scan_phy_mode; // offset 0x38 (defaults to 1)
+    int scan_dwell_time; // offset 0x3c (defaults to 0)
+    int scan_rest_time; // offset 0x40 (defaults to 0)
 
-
-
+    char unk2[772];
+    int    flags;   // offset 0x348
 
 };
 
