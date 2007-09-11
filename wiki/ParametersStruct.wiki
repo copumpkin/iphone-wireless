@@ -4,7 +4,7 @@ merge = true by default
 
 {{{
 
-struct Parameters {
+struct Apple80211Parameters {
     int unk0;
     int scan_bss_type; //offset 0x4 (defaults to 3)
     char bssid[6];        // offset 0x8
