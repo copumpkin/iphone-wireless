@@ -16,6 +16,11 @@ struct Parameters {
     int scan_dwell_time; // offset 0x3c (defaults to 0)
     int scan_rest_time; // offset 0x40 (defaults to 0)
     int channel_count; // offset 0x44
+    struct {
+        int present;
+        int channel;
+        int channel_flags;
+    } channels;
 
     char unk2[768];
     int    flags;   // offset 0x348
