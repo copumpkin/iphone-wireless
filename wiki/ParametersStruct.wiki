@@ -6,7 +6,7 @@ struct Parameters {
     char unk0[8];
     char bssid[6];        // offset 0x8
     char unk1[2];        // offset 0xE
-    int    ssid_str_len; // offset 0x10
+    int ssid_str_len; // offset 0x10
     char ssid_str[32]; // offset 0x14
     
 
