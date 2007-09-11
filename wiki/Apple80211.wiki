@@ -7,6 +7,7 @@ struct Apple80211 {
     char interface_name[20];
     int monitoring_handle; // ?
     int unknown;
+    int unknown2;
 };
 
 }}}
