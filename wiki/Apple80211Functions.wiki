@@ -7,15 +7,16 @@
   * Apple80211GetInterfaceNameCopy - _Retrieves the name of the currently bound interface._
   * Apple80211GetInfoCopy - _Retrieves information from the currently bound interface._
   * Apple80211GetIfListCopy - _Returns an array of available 802.11 devices._
+  * Apple80211Scan - _Performs a (passive) scan for networks._
 
 ==In Progress==
-  * Apple80211Scan - _Performs a (passive) scan for networks._
+
+  * Apple80211ScanDynamic
 
 ==Unknown==
   * Apple80211GetPower
   * Apple80211SetPower
   * Apple80211ScanAsync
-  * Apple80211ScanDynamic
   * Apple80211Associate
   * Apple80211Get
   * Apple80211CopyValue
