@@ -10,8 +10,8 @@ Performs a (passive) scan for networks.
 
 *Returns*
 
-  * 0 if successful, who knows what else otherwise (seems to be -1 if it doesn't crash)
-  * _list_ a `CFArrayRef` containing a `CFDictionaryRef` for each of the discovered networks
+  * 0 if successful. -1 if invalid arguments were passed in. More error values to come eventually.
+  * (by reference) _list_ a `CFArrayRef` containing a `CFDictionaryRef` for each of the discovered networks
 
 *Known keys for the _parameters_ dictionary*
 
