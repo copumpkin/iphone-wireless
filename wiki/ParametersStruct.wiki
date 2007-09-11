@@ -20,8 +20,7 @@ struct Parameters {
         int present;
         int channel;
         int channel_flags;
-    } channels;
-    char unk2[12];
+    } channels[64];
     int    flags;   // offset 0x348
     int unk3;
 };
