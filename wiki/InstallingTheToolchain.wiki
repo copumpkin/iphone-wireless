@@ -7,7 +7,7 @@
 mkdir ~/iphone-dev
 cd ~/iphone-dev
 port install wget
-apt-get http://landonf.bikemonkey.org/static/iphone/vfdecrypt-iphone.tar.gz
+wget http://landonf.bikemonkey.org/static/iphone/vfdecrypt-iphone.tar.gz
 tar -zxvf vfdecrypt-iphone.tar.gz
 cd vfdecrypt-iphone
 make
