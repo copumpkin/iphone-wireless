@@ -15,6 +15,7 @@ struct Parameters {
     int scan_phy_mode; // offset 0x38 (defaults to 1)
     int scan_dwell_time; // offset 0x3c (defaults to 0)
     int scan_rest_time; // offset 0x40 (defaults to 0)
+    int channel_count; // offset 0x44
 
     char unk2[772];
     int    flags;   // offset 0x348
