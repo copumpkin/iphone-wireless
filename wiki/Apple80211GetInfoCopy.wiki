@@ -1,6 +1,6 @@
 Retrieves information from the currently bound interface.
 
-{{{ int Apple80211GetInfoCopy(void *handle, CFDictionaryRef *info); }}}
+{{{ int Apple80211GetInfoCopy(struct Apple80211 *handle, CFDictionaryRef *info); }}}
 
 *Parameters*
 
