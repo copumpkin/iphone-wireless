@@ -8,4 +8,5 @@ Closes an open handle.
 
 *Returns*
 
+  * 0 if successful
   * -1 if the handle is NULL
