@@ -8,6 +8,7 @@ Initializes the Apple80211 library.
 
 *Returns*
 
+  * 0 if successful
   * -1 if the argument is NULL
   * -2 if it was unable to allocate memory for the Apple80211 struct
   * -3 if it was unable to open the socket
