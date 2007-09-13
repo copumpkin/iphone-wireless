@@ -25,6 +25,7 @@
 
 - (id)initWithFrame:(struct CGRect)frame;
 - (void)reloadTableData;
+- (void)setNetwork:(NSString *)aNetwork;
 
 //Delegate Methods
 - (void)navigationBar:(UINavigationBar*)bar buttonClicked:(int)button;

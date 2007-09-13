@@ -74,14 +74,6 @@ static StumblerApplication *sharedInstance;
 	
 	return sharedInstance;
 }
-- (void)currentNetwork:(NSDictionary *)network
-{
-	currentNetwork = network;
-}
-- (NSDictionary *)currentNetwork
-{
-	return currentNetwork;
-}
 - (void) applicationDidFinishLaunching: (id) unused
 {
     sharedInstance = self;
@@ -90,6 +82,7 @@ static StumblerApplication *sharedInstance;
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     float whiteComponents[4] = {1, 1, 1, 1};
     float transparentComponents[4] = {0, 0, 0, 0};
+    networksManager = [[MSNetworksManager alloc] init];
     transitionView = [[UITransitionView alloc] initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)];
     mainView = [[UIView alloc] initWithFrame:rect];
     [mainView addSubview:transitionView];
@@ -99,6 +92,10 @@ static StumblerApplication *sharedInstance;
     [mainWindow makeKey:self];
     [mainWindow _setHidden:NO];
     [self showNetworksViewWithTransition:1];
+}
+- (MSNetworksManager *)networksManager
+{
+	return networksManager;
 }
 - (void)enableiPhonePreference
 {
@@ -113,7 +110,7 @@ static StumblerApplication *sharedInstance;
 	}
 	[transitionView transition:trans toView:networksView];
 }
-- (void)showNetworkDetailsViewWithTransition:(int)trans
+- (void)showNetworkDetailsViewWithTransition:(int)trans : (NSString *)aNetwork
 {
 	if (!networkDetailsView)
 	{
@@ -121,7 +118,7 @@ static StumblerApplication *sharedInstance;
 		rect.origin.x = rect.origin.y = 0.0f;
 		networkDetailsView = [[MSNetworkDetailsView alloc] initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)];
 	}
-	[networkDetailsView reloadTableData];
+	[networkDetailsView setNetwork:aNetwork];
 	[transitionView transition:trans toView:networkDetailsView];
 }
 

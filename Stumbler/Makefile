@@ -5,7 +5,7 @@ CFLAGS=
 LDFLAGS=-lobjc -framework CoreFoundation -framework Foundation -framework UIKit -framework LayerKit -framework CoreGraphics
 all:    Stumbler
 
-Stumbler:  stumbler.o StumblerApplication.o MSNetworksView.o MSNetworkDetailsView.o
+Stumbler:  stumbler.o StumblerApplication.o MSNetworksView.o MSNetworkDetailsView.o MSNetworksManager.o
 	$(LD) $(LDFLAGS) -o $@ $^
 	@echo $(VERSION)>VERSION
 

@@ -28,9 +28,11 @@
 
 #import "MSNetworkDetailsView.h"
 #import "MSNetworksView.h"
+#import "MSNetworksManager.h";
 
 @class MSNetworkDetailsView;
 @class MSNetworksView;
+@class MSNetworksManager;
 
 @interface StumblerTableCell : UITableCell {
     UITextLabel *network_name;
@@ -46,13 +48,13 @@
 		NSDictionary *currentNetwork;
     MSNetworkDetailsView *networkDetailsView;
     MSNetworksView *networksView;
+    MSNetworksManager *networksManager;
 }
 + (StumblerApplication *)sharedInstance;
 - (void)applicationDidFinishLaunching:(id)unused;
-- (NSDictionary *)currentNetwork;
-- (void)currentNetwork:(NSDictionary *)network;
+- (MSNetworksManager *)networksManager;
 //- (void)applicationWillSuspend;
 - (void)enableiPhonePreference;
-- (void)showNetworkDetailsViewWithTransition:(int)trans;
+- (void)showNetworkDetailsViewWithTransition:(int)trans : (NSString *)aNetwork;
 - (void)showNetworksViewWithTransition:(int)trans;
 @end

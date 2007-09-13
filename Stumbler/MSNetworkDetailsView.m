@@ -31,7 +31,11 @@
 	
 	return self;
 }
-
+- (void)setNetwork:(NSString *)aNetwork
+{
+	network = [[ms networksManager] network:aNetwork];
+	[table reloadData];
+}
 - (void)reloadTableData
 {
 	[table reloadData];
@@ -94,46 +98,46 @@
 	{
 		case 0:
 			[descriptionLabel setText:@"SSID:"];
-			if ([[[ms currentNetwork] objectForKey: @"HIDDEN_NETWORK"] boolValue]) {
+			if ([[network objectForKey: @"HIDDEN_NETWORK"] boolValue]) {
 				[valueLabel setText: @"<hidden>"];
 	    } else {
-	    	[valueLabel setText:[[ms currentNetwork] objectForKey:@"SSID_STR"]];
+	    	[valueLabel setText:[network objectForKey:@"SSID_STR"]];
 	    }
 			break;
 		case 1:
 			[descriptionLabel setText:@"BSSID:"];
-			[valueLabel setText:[[ms currentNetwork] objectForKey:@"BSSID"]];
+			[valueLabel setText:[network objectForKey:@"BSSID"]];
 			break;
 		case 2:
 			[descriptionLabel setText:@"Channel:"];
-			val = [NSString stringWithFormat: @"%@", [[ms currentNetwork] objectForKey:@"CHANNEL"]];
+			val = [NSString stringWithFormat: @"%@", [network objectForKey:@"CHANNEL"]];
 			[valueLabel setText:val];
 			break;
 		case 3:
 			[descriptionLabel setText:@"AP Mode:"];
-			val = [NSString stringWithFormat: @"%@", [[ms currentNetwork] objectForKey:@"AP_MODE"]];
+			val = [NSString stringWithFormat: @"%@", [network objectForKey:@"AP_MODE"]];
 			[valueLabel setText:val];
 			break;
 		case 4:
 			[descriptionLabel setText:@"WPA:"];
-			[valueLabel setText:([[ms currentNetwork] objectForKey:@"WPA_IE"] ? @"YES":@"NO")];
+			[valueLabel setText:([network objectForKey:@"WPA_IE"] ? @"YES":@"NO")];
 			break;
 		case 5:
 			[descriptionLabel setText:@"WEP:"];
-			[valueLabel setText:([[[ms currentNetwork] objectForKey:@"WEP"] boolValue] ? @"YES":@"NO")];
+			[valueLabel setText:([[network objectForKey:@"WEP"] boolValue] ? @"YES":@"NO")];
 			break;
 		case 6:
 			[descriptionLabel setText:@"Signal Strength:"];
-			val = [NSString stringWithFormat: @"%@", [[ms currentNetwork] objectForKey:@"RSSI"]];
+			val = [NSString stringWithFormat: @"%@", [network objectForKey:@"RSSI"]];
 			[valueLabel setText:val];
 			break;
 		case 7:
 			[descriptionLabel setText:@"Hidden Network:"];
-			[valueLabel setText:([[[ms currentNetwork] objectForKey:@"HIDDEN_NETWORK"] boolValue] ? @"YES":@"NO")];
+			[valueLabel setText:([[network objectForKey:@"HIDDEN_NETWORK"] boolValue] ? @"YES":@"NO")];
 			break;
 		case 8:
 			[descriptionLabel setText:@"Beacon Interval:"];
-			val = [NSString stringWithFormat: @"%@", [[ms currentNetwork] objectForKey:@"BEACON_INT"]];
+			val = [NSString stringWithFormat: @"%@", [network objectForKey:@"BEACON_INT"]];
 			[valueLabel setText:val];
 			break;
 		default:

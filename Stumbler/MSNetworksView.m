@@ -7,15 +7,6 @@
 	self = [super initWithFrame:frame];
 	
 	ms = [StumblerApplication sharedInstance];
-	libHandle = dlopen("/System/Library/Frameworks/Preferences.framework/Preferences", RTLD_LAZY);
-	open = dlsym(libHandle, "Apple80211Open");
-	bind = dlsym(libHandle, "Apple80211BindToInterface");
-	close = dlsym(libHandle, "Apple80211Close");
-	scan = dlsym(libHandle, "Apple80211Scan");
-    
-	open(&airportHandle);
-	bind(airportHandle, @"en0");
-	
 	//Get full screen app rect
 	struct CGRect rect = [UIHardware fullScreenApplicationContentRect];
 	rect.origin.x = rect.origin.y = 0.0f;
@@ -31,8 +22,8 @@
 
 	openNetworks = [[NSMutableArray alloc] init];
 	protectedNetworks = [[NSMutableArray alloc] init];
-
-	[self scan];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networksUpdated:) name:@"NetworksUpdated" object:nil];
+	[[ms networksManager] scan];
 	sectionList = [[UISectionList alloc] initWithFrame:CGRectMake(rect.origin.x, 45.0f, rect.size.width, rect.size.height - 45.0f) showSectionIndex:NO];
 	[sectionList setDataSource:self];
 	[sectionList reloadData];
@@ -56,13 +47,10 @@
 }
 
 
-- (void)scan
+- (void)networksUpdated:(NSNotification *)notification
 {
-    NSArray *networks;
-    NSDictionary *parameters = [[NSDictionary alloc] init];
-        
-    scan(airportHandle, &networks, parameters);
-        
+    NSArray *networks = [[[ms networksManager] networks] allValues];
+    NSDictionary *parameters = [[NSDictionary alloc] init];    
     [openNetworks removeAllObjects];
     [protectedNetworks removeAllObjects];
     
@@ -83,7 +71,7 @@
 	//	NSLog(@"%@:%@",key,[net objectForKey: key]);
 	//}
 		}
-    
+		[sectionList reloadData];
     [title setTitle:[NSString stringWithFormat:@"Networks (%d)", [openNetworks count] + [protectedNetworks count]]];
 }
 
@@ -92,13 +80,11 @@
 
 - (void)navigationBar:(UINavigationBar*)navbar buttonClicked:(int)button 
 {
-	[self scan];
-	[sectionList reloadData];
+	[[ms networksManager] scan];
 }
 - (void)tableRowSelected:(NSNotification *)notification
 {
-	[ms currentNetwork:[self itemForIndex:[stable selectedRow]]];
-	[ms showNetworkDetailsViewWithTransition:1];
+	[ms showNetworkDetailsViewWithTransition:1 : [[self itemForIndex:[stable selectedRow]] objectForKey:@"BSSID"]];
 }
 
 #pragma mark ----------Datasource Methods-----------
