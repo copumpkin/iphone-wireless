@@ -23,15 +23,8 @@
 	NSMutableArray *protectedNetworks;
 	UINavigationItem *title;
 	UISectionList *sectionList;
-	void *libHandle;
-	void *airportHandle;
-	int (*open)(void *);
-	int (*bind)(void *, NSString *);
-	int (*close)(void *);
-	int (*scan)(void *, NSArray **, void *);
 }
 - (id)initWithFrame:(struct CGRect)frame;
-- (void)scan;
 
 //Delegate Methods
 - (void)navigationBar:(UINavigationBar*)bar buttonClicked:(int)button;
