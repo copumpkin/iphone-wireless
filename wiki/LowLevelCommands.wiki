@@ -1,2 +1,3 @@
-  * 0x802069C8 (char *interface_name)
+  * 0x802069C8 `(char *interface_name)`
   * 0xC02069C9
+ 
