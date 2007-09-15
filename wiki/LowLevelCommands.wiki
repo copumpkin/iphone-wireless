@@ -2,7 +2,7 @@ Apple80211Scan:
   * 0x802069C8
   * 0xC02069C9
  
- Apple80211ScanAsync:
+Apple80211ScanAsync:
   * 0x802069C8
 
 Apple80211ScanDynamic:
@@ -11,3 +11,4 @@ Apple80211ScanDynamic:
 
 Apple80211Associate:
   * 0x802069C8
+ 
