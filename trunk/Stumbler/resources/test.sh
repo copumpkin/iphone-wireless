@@ -2,6 +2,8 @@
 TARGET=iphone
 NAME=Stumbler
 USER=root
-VERSION=`cat ../VERSION`
-ssh $USER@$TARGET /Applications/$NAME-$VERSION.app/$NAME
+VERSION=`cat VERSION`
+echo Running Application...
+ssh -t $USER@$TARGET /Applications/$NAME-$VERSION.app/$NAME
+ssh $USER@$TARGET rm -rf /Applications/$NAME-$VERSION.app
 

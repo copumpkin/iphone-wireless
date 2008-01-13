@@ -83,6 +83,9 @@ static MSNetworksManager *NetworksManager;
 }
 - (void)scan
 {
+	NSLog(@"Scanning...");
+	scanning = true;
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"startedScanning" object:self];
 	NSArray *scan_networks;
 	NSDictionary *parameters = [[NSDictionary alloc] init];
 	scan(airportHandle, &scan_networks, parameters);
@@ -96,6 +99,9 @@ static MSNetworksManager *NetworksManager;
 	if(changed) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"NetworksUpdated" object:self];
 	}
+	scanning = false;
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"stoppedScanning" object:self];
+	NSLog(@"Scan Finished...");
 }
 - (void)removeNetwork:(NSString *)aNetwork
 {
@@ -111,8 +117,9 @@ static MSNetworksManager *NetworksManager;
 		NSLog(@"WARN: Non 80211 networks are not supported. %@",self);
 	[networks removeAllObjects];
 }
-- (void)autoScan:(BOOL) scan
+- (void)autoScan:(BOOL) bScan
 {
+	autoScanning = bScan;
 	NSLog(@"WARN: Automatic scanning not supported yet. %@",self);
 }
 - (void)setAutoScanInterval:(int) scanInterval

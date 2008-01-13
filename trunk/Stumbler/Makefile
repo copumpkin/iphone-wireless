@@ -12,10 +12,10 @@ Stumbler:  stumbler.o StumblerApplication.o MSNetworksView.o MSNetworkDetailsVie
 %.o:    %.m
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
-test:	package deploy
+test:	Stumbler package deploy
 	@echo running application...
 	@cp resources/test.sh deploy/test.sh
-	@(cd deploy && sh test.sh)
+	sh deploy/test.sh
 
 package: FORCE
 	@echo package files...
@@ -25,6 +25,7 @@ package: FORCE
 	@cp resources/icon.png deploy/Stumbler.app/icon.png
 	@cp resources/Default.png deploy/Stumbler.app/Default.png
 	@cp resources/Info.plist deploy/Stumbler.app/Info.plist
+	@cp VERSION deploy/VERSION
 
 deploy:	FORCE
 	@echo sending the files...
