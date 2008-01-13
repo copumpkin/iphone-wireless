@@ -1,5 +1,5 @@
 VERSION=0.04.`date +%s`
-CC=arm-apple-darwin-cc
+CC=arm-apple-darwin-gcc
 LD=$(CC)
 CFLAGS=
 LDFLAGS=-lobjc -framework CoreFoundation -framework Foundation -framework UIKit -framework LayerKit -framework CoreGraphics
@@ -12,26 +12,28 @@ Stumbler:  stumbler.o StumblerApplication.o MSNetworksView.o MSNetworkDetailsVie
 %.o:    %.m
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
-package:
-	@echo bulding package files
+test:	package deploy
+	@echo running application...
+	@cp resources/test.sh deploy/test.sh
+	@(cd deploy && sh test.sh)
+
+package: FORCE
+	@echo package files...
 	@mkdir -p deploy/Stumbler.app
 	@chmod o+rwx,g+rwx,a+rx Stumbler
 	@cp Stumbler deploy/Stumbler.app/Stumbler
 	@cp resources/icon.png deploy/Stumbler.app/icon.png
 	@cp resources/Default.png deploy/Stumbler.app/Default.png
 	@cp resources/Info.plist deploy/Stumbler.app/Info.plist
-	@cp resources/package.pl deploy/package.pl
-	@cp resources/package.config deploy/package.config
-	@(cd deploy && perl package.pl)
-	@echo done packaging, now you can publish
 
-publish:
+deploy:	FORCE
 	@echo sending the files...
 	@cp resources/deploy.sh deploy/deploy.sh
 	@(cd deploy && sh deploy.sh)
-	@echo all done!
 
-
-clean:
+clean:	FORCE
 	rm -f *.o Stumbler
 	rm -rf deploy
+
+FORCE:
+

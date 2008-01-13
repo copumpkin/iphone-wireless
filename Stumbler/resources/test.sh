@@ -3,5 +3,5 @@ TARGET=iphone
 NAME=Stumbler
 USER=root
 VERSION=`cat ../VERSION`
-scp -p -r ./$NAME.app $USER@$TARGET:/Applications/$NAME-$VERSION.app
+ssh $USER@$TARGET /Applications/$NAME-$VERSION.app/$NAME
 
