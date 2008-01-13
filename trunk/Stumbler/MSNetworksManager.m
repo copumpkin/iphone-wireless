@@ -50,7 +50,7 @@ static MSNetworksManager *NetworksManager;
 	networks = [[NSMutableDictionary alloc] init];
 	types = [NSArray arrayWithObjects:@"80211", @"Bluetooth", @"GSM", nil];
 	[types retain];
-	autoScanInterval = 10; //seconds
+	autoScanInterval = 5; //seconds
 	libHandle = dlopen("/System/Library/Frameworks/Preferences.framework/Preferences", RTLD_LAZY);
 	open = dlsym(libHandle, "Apple80211Open");
 	bind = dlsym(libHandle, "Apple80211BindToInterface");
@@ -117,10 +117,24 @@ static MSNetworksManager *NetworksManager;
 		NSLog(@"WARN: Non 80211 networks are not supported. %@",self);
 	[networks removeAllObjects];
 }
-- (void)autoScan:(BOOL) bScan
+- (void)autoScan:(bool) bScan
 {
 	autoScanning = bScan;
-	NSLog(@"WARN: Automatic scanning not supported yet. %@",self);
+	if(bScan) {
+		[self scan];
+		[NSTimer scheduledTimerWithTimeInterval:autoScanInterval target:self selector:@selector (scanSelector:) userInfo:nil repeats:NO];
+	}
+	NSLog(@"WARN: Automatic scanning not fully supported yet. %@",self);
+}
+- (bool)autoScan
+{
+	return autoScanning;
+}
+- (void)scanSelector:(id)param {
+	if(autoScanning) {
+		[self scan];
+		[NSTimer scheduledTimerWithTimeInterval:autoScanInterval target:self selector:@selector (scanSelector:) userInfo:nil repeats:NO];
+	}
 }
 - (void)setAutoScanInterval:(int) scanInterval
 {
