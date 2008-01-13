@@ -13,8 +13,8 @@
 	
 	navBar = [[UINavigationBar alloc] init];
 	[navBar setFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, 45.0f)];
-	//[navBar showLeftButton:nil withStyle:0 rightButton:@"Scan" withStyle:0];
-	[navBar showButtonsWithLeftTitle:nil rightTitle:@"Rescan" leftBack:YES];
+	[navBar showLeftButton:@"Quit" withStyle:0 rightButton:@"Rescan" withStyle:0];
+	//[navBar showButtonsWithLeftTitle:nil rightTitle:@"Rescan" leftBack:YES];
 	title = [[UINavigationItem alloc] initWithTitle: @"Networks"];
   [navBar pushNavigationItem: title];
 	[navBar setDelegate:self];
@@ -23,7 +23,7 @@
 	openNetworks = [[NSMutableArray alloc] init];
 	protectedNetworks = [[NSMutableArray alloc] init];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networksUpdated:) name:@"NetworksUpdated" object:nil];
-	[[ms networksManager] scan];
+	//[[ms networksManager] scan];
 	sectionList = [[UISectionList alloc] initWithFrame:CGRectMake(rect.origin.x, 45.0f, rect.size.width, rect.size.height - 45.0f) showSectionIndex:NO];
 	[sectionList setDataSource:self];
 	[sectionList reloadData];
@@ -77,10 +77,14 @@
 
 
 #pragma mark ----------Delegate Methods-----------
-
 - (void)navigationBar:(UINavigationBar*)navbar buttonClicked:(int)button 
 {
-	[[ms networksManager] scan];
+	NSLog(@"Clicked Button: %i", button);
+	if (button == 0) { // Rescan
+		[[ms networksManager] scan];
+	} else if ( button == 1) { //Exit 
+		exit(0);
+	}
 }
 - (void)tableRowSelected:(NSNotification *)notification
 {

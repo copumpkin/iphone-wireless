@@ -7,6 +7,8 @@
 	NSMutableDictionary *networks;
 	NSArray *types;
 	int autoScanInterval;
+	bool scanning;
+	bool autoScanning;
 	void *libHandle;
 	void *airportHandle;
 	int (*open)(void *);
