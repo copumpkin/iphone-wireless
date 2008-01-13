@@ -1,4 +1,5 @@
 #import <CoreFoundation/CoreFoundation.h>
+#import <Foundation/NSTimer.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/CDStructures.h>
 #import "StumblerApplication.h"
@@ -31,6 +32,8 @@
 - (void)removeNetwork:(NSString *)aNetwork;
 - (void)removeAllNetworks;
 - (void)removeAllNetworks:(int) type;
-- (void)autoScan:(BOOL) scan;
+- (void)autoScan:(bool)scan;
+- (bool)autoScan;
+- (void)scanSelector:(id)param;
 - (void)setAutoScanInterval:(int) scanInterval;
 @end

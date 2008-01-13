@@ -11,15 +11,25 @@
 	struct CGRect rect = [UIHardware fullScreenApplicationContentRect];
 	rect.origin.x = rect.origin.y = 0.0f;
 	
+	
 	navBar = [[UINavigationBar alloc] init];
 	[navBar setFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, 45.0f)];
-	[navBar showLeftButton:@"Quit" withStyle:0 rightButton:@"Rescan" withStyle:0];
+	[navBar showLeftButton:@"Quit" withStyle:0 rightButton:nil withStyle:0];
 	//[navBar showButtonsWithLeftTitle:nil rightTitle:@"Rescan" leftBack:YES];
 	title = [[UINavigationItem alloc] initWithTitle: @"Networks"];
-  [navBar pushNavigationItem: title];
+  	[navBar pushNavigationItem: title];
 	[navBar setDelegate:self];
-	//[navBar enableAnimation];
+	[navBar enableAnimation];
 
+	scanButton = [[[UIPushButton alloc] initWithTitle:@"Stop" autosizesToFit:YES] autorelease];
+	[scanButton setFrame: CGRectMake(268.0, 20.0, 50.0, 44.0)];
+	[scanButton setDrawsShadow: NO];
+	[scanButton setEnabled:YES];
+	[scanButton setStretchBackground:NO];
+	//[scanButton setBackground:[UIImage applicationImageNamed:@"getnew.png"] forState:0];
+	[scanButton addTarget: self action: @selector(toggleScan) forEvents: (1<<6)];
+	[navBar addSubview: scanButton];
+	
 	openNetworks = [[NSMutableArray alloc] init];
 	protectedNetworks = [[NSMutableArray alloc] init];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networksUpdated:) name:@"NetworksUpdated" object:nil];
@@ -30,16 +40,51 @@
 
 	stable = [sectionList table];
 	[stable setShouldHideHeaderInShortLists:NO];
-  UITableColumn *packageColumn = [[UITableColumn alloc] initWithTitle:@"Network Name" identifier:@"name" width:320.0f];
+  	UITableColumn *packageColumn = [[UITableColumn alloc] initWithTitle:@"Network Name" identifier:@"name" width:320.0f];
 	[stable addTableColumn:packageColumn];
 	[stable setSeparatorStyle:1];
 	[stable setRowHeight:64.0f];
 	[stable setDelegate:self];
 	[self addSubview:navBar];
 	[self addSubview:sectionList];
+	[[ms networksManager] autoScan:true];
 	return self;
 }
 
+- (void) toggleScan
+{
+/*	
+	_spinner = [[[UIProgressIndicator alloc] initWithFrame: CGRectMake(80.0f, 13.0f, 20.0f, 20.0f)] autorelease];
+	[_spinner setAnimationDuration:1];
+	[_spinner startAnimation];
+	[botNavBar addSubview: _spinner];
+	
+	_spinnerLabel = [[[UITextLabel alloc] initWithFrame: CGRectMake(110.0f, 13.0f, 150.0f, 20.0f)] autorelease];
+	[_spinnerLabel setFont:[NSClassFromString(@"WebFontCache") createFontWithFamily:@"Helvetica" traits:2 size:12]];
+	[_spinnerLabel setText: @"Refreshing Feed"];
+	[_spinnerLabel setBackgroundColor: [UIView colorWithRed:52.0f green:154.0f blue:243.0f alpha:0.0f]];
+	[_spinnerLabel setColor: [UIView colorWithRed:52.0f green:154.0f blue:243.0f alpha:1.0f]];
+	[_spinnerLabel setWrapsText: NO];
+	[botNavBar addSubview: _spinnerLabel];
+
+	ThreadProcesses *_tproc = [[[ThreadProcesses alloc] init] autorelease];
+	[_tproc setDelegate: self];
+
+	[NSThread detachNewThreadSelector:@selector(refreshSingleFeed:) toTarget:_tproc withObject:nil];
+*/
+	if([scanButton title] == @"Stop") {
+		[scanButton setTitle:@"Scan"];
+		[scanButton setEnabled:NO];
+		[[ms networksManager] autoScan:false];
+		[scanButton setEnabled:YES];
+	} else {
+		[scanButton setTitle:@"Stop"];		
+		[scanButton setEnabled:NO];
+		[[ms networksManager] autoScan:true];
+		[scanButton setEnabled:YES];
+	}
+	
+}
 
 - (BOOL) isProtected: (NSDictionary *)network
 {
@@ -81,7 +126,6 @@
 {
 	NSLog(@"Clicked Button: %i", button);
 	if (button == 0) { // Rescan
-		[[ms networksManager] scan];
 	} else if ( button == 1) { //Exit 
 		exit(0);
 	}

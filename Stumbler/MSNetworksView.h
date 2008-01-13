@@ -9,6 +9,7 @@
 #import <UIKit/UITableColumn.h>
 #import <UIKit/UITableCell.h>
 #import <UIKit/UINavigationBar.h>
+#import <UIKit/UIProgressIndicator.h>
 
 #import "StumblerApplication.h"
 
@@ -23,6 +24,8 @@
 	NSMutableArray *protectedNetworks;
 	UINavigationItem *title;
 	UISectionList *sectionList;
+	UIProgressIndicator   *progressIndicator;
+	UIPushButton *scanButton;
 }
 - (id)initWithFrame:(struct CGRect)frame;
 
