@@ -3,10 +3,10 @@
  * Copyright (C) 2007-2008 Pumpkin <pumpkingod@gmail.com>                      *
  * Copyright (C) 2007-2008 Lokkju <lokkju@gmail.com>                           *
  *******************************************************************************
- * $LastChangedDate$ *
- * $LastChangedBy$ *
- * $LastChangedRevision$ *
- * $Id$ *
+ * $LastChangedDate::                                                        $ *
+ * $LastChangedBy::                                                          $ *
+ * $LastChangedRevision::                                                    $ *
+ * $Id::                                                                     $ *
  *******************************************************************************
  *  This program is free software: you can redistribute it and/or modify       *
  *  it under the terms of the GNU General Public License as published by       *
